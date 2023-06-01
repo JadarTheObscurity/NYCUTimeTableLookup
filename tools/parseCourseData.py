@@ -75,9 +75,9 @@ def saveCourses(courses, coursePath, coursesWithPath):
 courseWithPath = {}
 # Print all the file name in the tmp folder
 loopCounter = 0
-for file in os.listdir("tmp"):
+for file in os.listdir("../tmp"):
     print(file)
-    with open("tmp/" + file, "r") as f:
+    with open("../tmp/" + file, "r") as f:
         courses = json.load(f)
         coursePath = file.split(".")[0]
         saveCourses(courses, coursePath, courseWithPath)

@@ -46,7 +46,7 @@
                 const courseTime = course.courseTime
                 return `
                     <li>
-                        <a href=${courseURL} class="links"> 課程名稱：${courseName} </a>
+                        <a href=${courseURL}  target="_blank" rel="noopener noreferrer" class="links"> 課程名稱：${courseName} </a>
                         <span class="coursePath"> 課程路徑：${coursePath}</span>
                         <span class="courseTeacher"> 授課老師：${courseTeacher}</span>
                         <span class="courseTime"> 課程時間：${courseTime}</span>
@@ -54,7 +54,7 @@
                     `
             });
 
-            const html = htmlAll.length < 10 ? htmlAll.join('') : htmlAll.slice(0, 10).join('');
+            const html = htmlAll.join('');
             listElement.innerHTML = html;
         }
 
