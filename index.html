@@ -22,37 +22,79 @@
             courses.push(...data);
         });
 
+        function escapeRegExp(string) {
+            return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        }
+
+
         function findMatch(keyword, courses) {
-            const regex = RegExp(`${keyword}`, "gi");
-            return courses.filter(place => {
-                return place.courseName.match(regex) || place.courseTeacher.match(regex);
+            keyword = keyword.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&')
+            const keywordArray = keyword.split(' ').filter(keyword => {return keyword.trim() !== ''});
+            console.log(`keywords: ${keywordArray}`)
+            const regex = new RegExp(`(${keywordArray.join('|')})`, 'gi');
+            const regexArray = keywordArray.map(keyword => new RegExp(`(${keyword})`, 'gi'));
+            return courses.filter(course => {
+                const courseType = course.costype.reduce((acc, cur) => {
+                    return acc + cur + " "
+                }, "");
+                return regexArray.every(regex => course.cos_cname.match(regex) || course.teacher.match(regex) || courseType.match(regex));
             })
         }
+
+        function highlightResult(keyword, string) {
+            const keywordArray = keyword.split(' ').filter(keyword => {return keyword.trim() !== ''});
+            const regex = new RegExp(`(${keywordArray.join('|')})`, 'gi');
+            if (string.match(regex) === null) {
+                return string;
+            }
+            return string.replace(regex, `<span class="hl">${string.match(regex)[0]}</span>`)
+        }
+
 
         function displayMatch(e) {
             if (this.value === '') {
                 listElement.innerHTML = '';
                 return;
             }
-            const matches = findMatch(this.value, courses);
-            const regex = RegExp(`${this.value}`, "gi");
+            let courseIds = new Set();
+            const matches = findMatch(this.value, courses).filter(course => {
+                if (courseIds.has(course.cos_id)) {
+                    return false;
+                }
+                courseIds.add(course.cos_id);
+                return true;
+            })
+            console.log(matches);
+
+
+            // const regex = RegExp(`${this.value}`, "gi");
+            const keywordArray = this.value.split(' ').filter(keyword => {return keyword.trim() !== ''});
+            console.log(`keywords: ${keywordArray}`)
+            const regex = new RegExp(`(${keywordArray.join('|')})`, 'gi');
             const htmlAll = matches.map(course => {
-                const courseSem = course.courseSemester.substr(course.courseSemester.length-1, 1)
-                const courseAcy = course.courseSemester.substr(0, course.courseSemester.length-1)
+                const courseSem = course.sem;
+                const courseAcy = course.acy; 
                 const courseURL = `https://timetable.nycu.edu.tw/?r=main/crsoutline&Acy=${courseAcy}&Sem=${courseSem}&CrsNo=${course.courseId}&lang=zh-tw`;
-                const courseName = course.courseName.replace(regex, `<span class="hl">${this.value}</span>`)
+                const courseName = highlightResult(this.value, course.cos_cname);
                 const coursePath = course.coursePath
-                const courseTeacher = course.courseTeacher.replace(regex, `<span class="hl">${this.value}</span>`)
-                const courseTime = course.courseTime
+                const courseTeacher = highlightResult(this.value, course.teacher);
+                const courseTime = course.cos_time
+                const courseTypeTmp = course.costype.reduce((acc, cur) => {
+                    return acc + cur + " "
+                }, "")
+                const courseType = highlightResult(this.value, courseTypeTmp) 
                 return `
                     <li>
                         <a href=${courseURL}  target="_blank" rel="noopener noreferrer" class="links"> 課程名稱：${courseName} </a>
                         <span class="coursePath"> 課程路徑：${coursePath}</span>
                         <span class="courseTeacher"> 授課老師：${courseTeacher}</span>
                         <span class="courseTime"> 課程時間：${courseTime}</span>
+                        <span class="courseType"> ${courseType}</span>
                     </li>
                     `
             });
+
+
 
             const html = htmlAll.join('');
             listElement.innerHTML = html;

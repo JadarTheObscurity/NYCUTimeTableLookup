@@ -1,43 +1,167 @@
 [
     {
-        "departmentPath": "學士班課程_一般學士班_(外科學科)",
-        "departmentId": "0D64C0D7-2E8D-48B8-9E5F-CB5E997779E9"
+        "departmentPath": "學士班課程_一般學士班_電機學院_CEE(電機共同課程)",
+        "departmentId": "75F46684-4732-47B1-8894-E22C9FA6C5A2"
     },
     {
-        "departmentPath": "學士班課程_一般學士班_(生理學科)",
-        "departmentId": "498003D1-A883-4907-8E47-1EAB6D9C8DCB"
+        "departmentPath": "學士班課程_一般學士班_電機學院_DCE(電機學院院級(學士班))",
+        "departmentId": "CCF66C6B-573F-4C59-B03F-EEB6DE3FF989"
     },
     {
-        "departmentPath": "學士班課程_一般學士班_(生物化學科)",
-        "departmentId": "A9A983B5-C9DD-4985-A102-5797A8CECA95"
+        "departmentPath": "學士班課程_一般學士班_電機學院_DEO(光電工程學系)",
+        "departmentId": "2F76991A-211C-4D75-B046-335E65EAE656"
     },
     {
-        "departmentPath": "學士班課程_一般學士班_(微生物學科)",
-        "departmentId": "4FC62FC3-EE11-4213-AD7C-901CE1A69AC0"
+        "departmentPath": "學士班課程_一般學士班_電機學院_ECE(電機資訊學士班)",
+        "departmentId": "F25F72ED-9F1C-469A-A174-6FF0F0367955"
     },
     {
-        "departmentPath": "學士班課程_一般學士班_(病理學科)",
-        "departmentId": "436C6908-F0B2-4149-800D-EA5EA4EDBC36"
+        "departmentPath": "學士班課程_一般學士班_電機學院_UEE(電機工程學系)",
+        "departmentId": "73CEC435-74FF-49FE-88E7-63F369B3A3C5"
     },
     {
-        "departmentPath": "學士班課程_一般學士班_(解剖學及細胞生物學科)",
-        "departmentId": "10D8EA6A-6A4A-46CE-A798-051546D69B9C"
+        "departmentPath": "學士班課程_一般學士班_科技法律學院_SOL(科技法律學院)",
+        "departmentId": "A97505B4-0AC3-4E22-AFFD-E11038A2E4AA"
     },
     {
-        "departmentPath": "學士班課程_一般學士班_(藥理學科)",
-        "departmentId": "43ECAD27-9DFB-4F3C-B886-772DC5314EDF"
+        "departmentPath": "學士班課程_一般學士班_前瞻系統工程教育院_SET(系統工程與科技學士學位學程)",
+        "departmentId": "CF366320-3E10-4874-A393-3A028DEC5E79"
     },
     {
-        "departmentPath": "學士班課程_一般學士班_DPH(公共衛生學科)",
-        "departmentId": "9ACAEC6A-2BE7-4680-B15D-3CC123AC4EE4"
+        "departmentPath": "學士班課程_一般學士班_資訊學院_CS(資訊學院共同課程)",
+        "departmentId": "3FDEE98E-1A4F-4DE3-847B-ED0061569CC8"
     },
     {
-        "departmentPath": "學士班課程_一般學士班_LAC(博雅書苑Y)",
-        "departmentId": "A91F7169-A56F-4612-85DE-2AC40893212C"
+        "departmentPath": "學士班課程_一般學士班_資訊學院_DCP(資訊工程學系)",
+        "departmentId": "E2D47D2E-B529-4449-8619-8561D3401D32"
     },
     {
-        "departmentPath": "學士班課程_一般學士班_TFS(台中一中科學班)",
-        "departmentId": "60A7936E-B0C0-4C0F-9DE7-33D16A367F20"
+        "departmentPath": "學士班課程_一般學士班_校級_(學士班大一大二不分系)",
+        "departmentId": "E55D50E2-B13D-4878-89C3-6317098C26CB"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_醫學院_(醫學系)",
+        "departmentId": "F247D032-D9C1-4544-BC86-C2344E72746C"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_醫學院_MHE(醫學人文暨教育學科)",
+        "departmentId": "B285CF89-A49E-EC11-85F4-005056816DA7"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_牙醫學院_(牙醫學系)",
+        "departmentId": "A5E1FDEB-14BC-473B-A0DA-E80A977D2998"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_護理學院_(護理學系)",
+        "departmentId": "DF8662D9-F214-4BA7-AD19-6013ADDEBFE1"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_藥物科學院_(藥學系)",
+        "departmentId": "0F4AE32B-3968-43DC-8CA5-980F34D2B514"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_生物醫學暨工程學院_(生物醫學影像暨放射科學系)",
+        "departmentId": "19B1B733-DE95-4EC9-9737-44CCFF143365"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_生物醫學暨工程學院_(物理治療暨輔助科技學系)",
+        "departmentId": "FEE44E15-05FE-4B3E-A39F-0FB032FA5D1F"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_生物醫學暨工程學院_(數位醫療學士學位學程)",
+        "departmentId": "A65FD51A-288D-4050-A421-6630F412431F"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_生物醫學暨工程學院_(醫學生物技術暨檢驗學系)",
+        "departmentId": "5BA684B8-A5F5-4A81-BC5D-7EB434ACC91B"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_生物醫學暨工程學院_BME(生物醫學工程學系)",
+        "departmentId": "571E904D-E87A-436F-8CA6-4457B76519FF"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_生命科學院_(生命科學系暨基因體科學研究所)",
+        "departmentId": "C6EF4067-5FDD-46D8-8804-3382FEBA57DA"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_工學院_DCV(土木工程學系)",
+        "departmentId": "C4C32026-B85E-4A0B-942E-EA4821B77242"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_工學院_DMA(材料科學與工程學系)",
+        "departmentId": "37CB05FC-64B3-4152-85F6-561A9606CFB2"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_工學院_DME(機械工程學系)",
+        "departmentId": "EA401C63-54EF-4F56-B1AE-E398629D9005"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_理學院_DAC(應用化學系)",
+        "departmentId": "FBD12D47-AE15-4D1E-AA2E-1398CCCADD45"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_理學院_DAM(應用數學系)",
+        "departmentId": "A0C3EB6F-4D5A-440D-9634-EB826A8587E5"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_理學院_DEP(電子物理學系)",
+        "departmentId": "900C8A5B-25F1-4110-8F09-E9ACB0D68CFD"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_理學院_DPS(理學院科學學士學位學程)",
+        "departmentId": "437984C4-C0DD-445C-9801-9EE0954A0046"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_管理學院_DEM(工業工程與管理學系)",
+        "departmentId": "E40323F1-85D9-4F05-B944-070B2BD3550C"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_管理學院_DIF(資訊管理與財務金融系)",
+        "departmentId": "2899D2A7-74F5-4778-9D0E-348CB10E9BCB"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_管理學院_DMS(管理科學系)",
+        "departmentId": "5BD3020C-C88A-410B-959F-C95CD8D05F45"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_管理學院_DOM(管理學院院本部)",
+        "departmentId": "5F048E6C-CF97-4BD0-AC8A-6E03B29E201B"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_管理學院_DOM(管理學院共同課程)",
+        "departmentId": "8661CF60-9CD1-4CDB-A5AE-9B9DA633F086"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_管理學院_DTM(運輸與物流管理學系)",
+        "departmentId": "B325F6A9-EF12-4439-960A-3EE27528AD19"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_生物科技學院_DBT(生物科技學系)",
+        "departmentId": "6364089A-4693-4A80-B2D0-3F341DF5EBFF"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_人文社會學院_DFL(外國語文學系)",
+        "departmentId": "16F59D39-254D-4EE9-B742-6E9EF801F297"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_人文社會學院_DOH(人文社會學院院本部)",
+        "departmentId": "3CEF1CCE-9A5D-4B91-AA06-C3F717F7619E"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_客家文化學院_DCT(傳播與科技學系)",
+        "departmentId": "23468ECA-50AE-4182-BAF8-C0AD5E57D27D"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_客家文化學院_DHS(人文社會學系)",
+        "departmentId": "1CFC1720-6FE9-4265-98E5-06916C1DFF0D"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_跨院學程推展辦公室_DPN(奈米科學及工程學士學位學程)",
+        "departmentId": "81FEC6E5-A78C-4641-A47F-D06FD9B448C7"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_跨院學程推展辦公室_DWA(百川學士學位學程)",
+        "departmentId": "028758A1-A365-44DB-9EF4-5B97C510A2E2"
     },
     {
         "departmentPath": "研究所課程_一般研究所_電機學院_ECM(電信工程研究所)[碩]",

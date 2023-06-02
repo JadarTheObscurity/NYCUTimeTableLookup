@@ -54,7 +54,7 @@ class NYCUTimeTableCrawler:
         formData["m_crsoutline"] = "**"
         formData["m_costype"] = "**"
         formData["m_selcampus"] = "**"
-        return self.sent(self.timeTableUrl, {'r': 'main/get_cos_list'}, formData).json()
+        return self.sent({'r': 'main/get_cos_list'}, formData).json()
     
     def getType(self):
         types = self.sent({'r': 'main/get_type'}, self.paramDefault).json()
@@ -72,7 +72,7 @@ class NYCUTimeTableCrawler:
             paramGetCollege = params.copy()
             paramGetCollege["fcategory"] = categoryId
             # print(f"category: {categoryId} {categoryName}")
-            if params["ftype"] in ["872C7C9C-CD95-4C97-9B9C-ACDBF6F1F0B0", "D8E6F0E8-126D-4C2F-A0AC-F9A96A5F6D5D"]:
+            if params["ftype"] in ["870A5373-5B3A-415A-AF8F-BB01B733444F", "D8E6F0E8-126D-4C2F-A0AC-F9A96A5F6D5D"]:
                 self.getCollege(paramGetCollege, f"{path}_{categoryName}")
             else:
                 self.getDepartment(paramGetCollege, f"{path}{'_'+categoryName if categoryName else ''}")
