@@ -1,0 +1,1490 @@
+[
+    {
+        "departmentPath": "學士班課程_一般學士班_(外科學科)",
+        "departmentId": "0D64C0D7-2E8D-48B8-9E5F-CB5E997779E9"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_(生理學科)",
+        "departmentId": "498003D1-A883-4907-8E47-1EAB6D9C8DCB"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_(生物化學科)",
+        "departmentId": "A9A983B5-C9DD-4985-A102-5797A8CECA95"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_(微生物學科)",
+        "departmentId": "4FC62FC3-EE11-4213-AD7C-901CE1A69AC0"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_(病理學科)",
+        "departmentId": "436C6908-F0B2-4149-800D-EA5EA4EDBC36"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_(解剖學及細胞生物學科)",
+        "departmentId": "10D8EA6A-6A4A-46CE-A798-051546D69B9C"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_(藥理學科)",
+        "departmentId": "43ECAD27-9DFB-4F3C-B886-772DC5314EDF"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_DPH(公共衛生學科)",
+        "departmentId": "9ACAEC6A-2BE7-4680-B15D-3CC123AC4EE4"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_LAC(博雅書苑Y)",
+        "departmentId": "A91F7169-A56F-4612-85DE-2AC40893212C"
+    },
+    {
+        "departmentPath": "學士班課程_一般學士班_TFS(台中一中科學班)",
+        "departmentId": "60A7936E-B0C0-4C0F-9DE7-33D16A367F20"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_電機學院_ECM(電信工程研究所)[碩]",
+        "departmentId": "53A140EC-F298-4E72-AD2E-45D7253C38F8"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_電機學院_EED(電機學院博士班)[博]",
+        "departmentId": "4750D5E7-8F08-4395-84D7-B5CE7A00D249"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_電機學院_GEE(電機工程學系)[碩]",
+        "departmentId": "138AA9B5-ADF5-467B-A6C4-7B81ACEF431B"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_電機學院_ICN(電控工程研究所)[碩]",
+        "departmentId": "F03D7792-A8CD-491C-A20C-9D9DFF56014B"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_電機學院_IEE(電子研究所)[碩]",
+        "departmentId": "29A058AC-DE9C-4693-8734-B0C601AE6738"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_電機學院_IEO(光電工程學系)[博]",
+        "departmentId": "8AA1026B-EF42-43C9-85AF-68D87EFB0A1E"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_電機學院_IEO(光電工程學系)[碩]",
+        "departmentId": "B2C67A04-C925-4785-B8AC-3FAEEF0A458F"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_電機學院_IIE(生醫工程研究所)[碩]",
+        "departmentId": "9FB1EE9E-DEB3-47F5-A865-2B004237E736"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_光電學院_COP(光電學院博士班)[博]",
+        "departmentId": "9050E6AE-1541-47C5-94C8-3B1E73E6012C"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_光電學院_IIB(影像與生醫光電研究所)[碩]",
+        "departmentId": "FC035DDA-97F0-450C-BC00-548271608230"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_光電學院_ILP(照明與能源光電研究所)[碩]",
+        "departmentId": "8C4EBE1A-CDA4-4087-89FD-D046DB7E8AE8"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_光電學院_IPO(光電學院)[碩]",
+        "departmentId": "90455AA1-9E14-4D69-A6A8-86F591399768"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_光電學院_IPS(光電系統研究所)[碩]",
+        "departmentId": "8B86137F-6B32-4221-9FB7-E9D4717E57C9"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_科技法律學院_ITL(科技法律研究所)[碩]",
+        "departmentId": "ABF1A309-8B7A-4035-85D5-0C2944E857AC"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_國際半導體產業學院_CST(國際半導體產業學院博士班)[博]",
+        "departmentId": "EDC51948-82B8-43C5-A66C-4D0379B60ED6"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_國際半導體產業學院_CST(國際半導體產業學院碩士班)[碩]",
+        "departmentId": "E10261D7-7062-4CE1-B7D7-FD3EF2068864"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_國際半導體產業學院_NIMP(國際半導體越南境外專班)[碩]",
+        "departmentId": "C2A9AC60-F8A6-4510-AA07-6E656C577193"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_智慧科學暨綠能學院_AIX(智慧計算與科技研究所)[碩]",
+        "departmentId": "1C171530-9400-46C9-B35A-B83955005824"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_智慧科學暨綠能學院_AIY(智慧系統與應用研究所)[碩]",
+        "departmentId": "0F6318C2-C3E1-4AAA-AC06-46763CD0565A"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_智慧科學暨綠能學院_AIZ(智慧與綠能產學研究所)[碩]",
+        "departmentId": "1B2F4714-6255-425C-8CA6-524DB1F06FD3"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_智慧科學暨綠能學院_DPCAI(智慧科學暨綠能學院博士班)[博]",
+        "departmentId": "003BBF4E-DFFF-47E8-ADDC-894F95832F02"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_智慧科學暨綠能學院_IOG(智慧科學暨綠能學院)[碩]",
+        "departmentId": "0FFE1B73-E0D3-43B8-B71C-44288788B83E"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_產學創新研究學院_AI System(智能系統研究所)[博]",
+        "departmentId": "01EDC1BB-555D-4C38-9FDE-AACD11D456D4"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_產學創新研究學院_AI System(智能系統研究所)[碩]",
+        "departmentId": "753F1C40-33E4-4614-A83C-9A8B4998612D"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_產學創新研究學院_PSEMI(前瞻半導體研究所)[博]",
+        "departmentId": "23476CA1-30E9-4430-A1B8-CA6291698D07"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_產學創新研究學院_Pio-SEMI(前瞻半導體研究所)[碩]",
+        "departmentId": "0F1C4B7A-BD1F-46B2-9378-C188343B6568"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_資訊學院_GPC(資訊學院博士班)[博]",
+        "departmentId": "5BB92F33-5AA8-47D1-AAAF-30CE7320204F"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_資訊學院_IDS(數據科學與工程研究所碩士班)[碩]",
+        "departmentId": "537EA001-3191-4C00-88A8-0FDA05982424"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_資訊學院_ILE(多媒體工程研究所)[碩]",
+        "departmentId": "7BDC1EB0-9B23-4A92-AB4A-ED06B71D55C0"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_資訊學院_IOC(資訊科學與工程研究所)[博]",
+        "departmentId": "75E185EE-1E25-4A97-99FC-E69EFCE5EA58"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_資訊學院_IOC(資訊科學與工程研究所)[碩]",
+        "departmentId": "F097A7AA-BB64-4C3F-B00C-799B5BF76D7F"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_資訊學院_IOE(網路工程研究所)[碩]",
+        "departmentId": "C4033318-ECBD-4AA2-ADD9-74ABFDD8CFE6"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_校級_(跨專業長期照顧與管理碩士學位學程)[碩]",
+        "departmentId": "771DC867-1EDE-42C4-A815-F64A558216F0"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_醫學院_(國際衛生碩士學位學程)[碩]",
+        "departmentId": "B886CB13-AD6F-434E-AEA4-BE0CB5599D4F"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_醫學院_(生理學研究所)[博]",
+        "departmentId": "081F2C6A-F425-4180-A401-F868C3B0C405"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_醫學院_(生理學研究所)[碩]",
+        "departmentId": "2F2E6A20-E7E2-4D6A-9C13-84461E24F056"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_醫學院_(生物醫學資訊研究所)[博]",
+        "departmentId": "204A4CE7-4287-4225-9686-8576756E81F0"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_醫學院_(生物醫學資訊研究所)[碩]",
+        "departmentId": "550F3DB0-31CD-4605-965E-A385C23D5880"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_醫學院_(急重症醫學研究所)[博]",
+        "departmentId": "811AAD7B-D094-4F8E-B339-D369F6E8929C"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_醫學院_(急重症醫學研究所)[碩]",
+        "departmentId": "483B6E28-F623-4F72-8CD0-E6F69AA9E7BD"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_醫學院_(轉譯醫學博士學位學程)[博]",
+        "departmentId": "F04272A9-16F9-459C-9000-9529DE1AC733"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_醫學院_(衛生福利研究所)[博]",
+        "departmentId": "B261AFEF-B9E3-4009-9249-66242C80C2BA"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_醫學院_(衛生福利研究所)[碩]",
+        "departmentId": "BA742954-09E0-4535-8BA9-75DD78B555FA"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_醫學院_(腦科學研究所)[博]",
+        "departmentId": "6214CA63-8F07-41FE-AC64-48EA680E5C71"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_醫學院_(腦科學研究所)[碩]",
+        "departmentId": "9CD4EBC5-3B57-4882-A5A0-970EE834ACD8"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_醫學院_(公共衛生研究所)[博]",
+        "departmentId": "1286F78D-D327-4921-934A-FB22159D500F"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_醫學院_(公共衛生研究所)[碩]",
+        "departmentId": "870B8265-5299-4174-891E-00A04498D07B"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_醫學院_(公共衛生碩士學位學程)[碩]",
+        "departmentId": "30002348-C343-43B9-B7B9-A9B2ACCC063C"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_醫學院_(醫學院)[碩]",
+        "departmentId": "EC244D74-7FE0-4643-9843-CB1A1E6A5B39"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_醫學院_(醫務管理研究所)[碩]",
+        "departmentId": "D727C12D-E71C-4E52-8B64-226E94048620"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_醫學院_(環境與職業衛生研究所)[博]",
+        "departmentId": "A7C13040-D9A6-4CD4-AE9A-0FBE74CCA318"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_醫學院_(環境與職業衛生研究所)[碩]",
+        "departmentId": "BB44DE12-B6EA-4162-9B03-8A2799919088"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_醫學院_(環境科技博士學位學程(台灣聯合大學系統))[博]",
+        "departmentId": "5E23CC1A-EAE0-4600-9421-748EDD57D332"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_醫學院_(傳統醫藥研究所)[博]",
+        "departmentId": "24375FE4-A897-4815-9568-5E640D8EF730"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_醫學院_(傳統醫藥研究所)[碩]",
+        "departmentId": "F5E48150-2819-46DF-9214-00D0E3FF5B16"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_醫學院_(解剖學及細胞生物學研究所)[碩]",
+        "departmentId": "14BBCB8E-1834-49FE-A721-E83F4218580B"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_醫學院_(藥理學研究所)[博]",
+        "departmentId": "DCACA706-9266-416B-8CA0-D47886CF80FC"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_醫學院_(藥理學研究所)[碩]",
+        "departmentId": "FE5FCAD6-B49F-4B23-93A2-0049FA2A2098"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_醫學院_(臨床醫學研究所)[博]",
+        "departmentId": "1EED9C95-190C-41CE-9CEE-67A0CC55215E"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_醫學院_(臨床醫學研究所)[碩]",
+        "departmentId": "22A13E49-1C5B-4277-AE97-58CF92F2C898"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_醫學院_PIM(跨領域醫學博士學位學程)[博]",
+        "departmentId": "C5E0206F-0496-EC11-85F4-005056816DA7"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_牙醫學院_(牙醫學系)[博]",
+        "departmentId": "74D5AC01-1788-4518-A4F0-323F3BFDEFE1"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_牙醫學院_(牙醫學系)[碩]",
+        "departmentId": "5A6F8AF9-0CD0-4189-8806-DCC75B862C9D"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_牙醫學院_(口腔生物研究所)[博]",
+        "departmentId": "6CC5905E-AB10-48A8-BEA8-A850E4006BCE"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_牙醫學院_(口腔生物研究所)[碩]",
+        "departmentId": "FF69508A-DF4C-4539-B2E2-004D7128C3E5"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_牙醫學院_ITM(口腔組織工程暨生技材料研究所)[碩]",
+        "departmentId": "B91F507E-946F-EC11-85F4-005056816DA7"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_護理學院_(社區健康照護研究所)[碩]",
+        "departmentId": "DE646D71-CFD9-42E9-93C0-B2FAD3AD935F"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_護理學院_(護理學系)[博]",
+        "departmentId": "30412F02-B776-4030-9A81-DBEC284FB354"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_護理學院_(臨床護理研究所)[博]",
+        "departmentId": "7B5C0463-4402-4BF0-9FD1-BFDFB81F0C48"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_護理學院_(臨床護理研究所)[碩]",
+        "departmentId": "B055162C-C1B4-496B-A164-46C87FC78715"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_藥物科學院_(生物藥學研究所)[博]",
+        "departmentId": "1B3AC953-0AB8-40D8-8374-4F7F9FB367DB"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_藥物科學院_(生物藥學研究所)[碩]",
+        "departmentId": "D1748DDA-5572-4252-8D0A-7A588C918007"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_藥物科學院_(食品安全及健康風險評估研究所)[碩]",
+        "departmentId": "B1EFC4D8-41F1-4464-AE12-29601DB8FF56"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_藥物科學院_(藥學系)[碩]",
+        "departmentId": "A4954C5B-99AF-408B-9BB7-D8D2AC080499"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_生物醫學暨工程學院_(生物醫學影像暨放射科學系)[博]",
+        "departmentId": "FB1E3735-2DE5-4ADD-A162-E33E60800FC4"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_生物醫學暨工程學院_(生物醫學影像暨放射科學系)[碩]",
+        "departmentId": "405FD752-3C2D-48A3-9906-EE2F76CCA1D5"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_生物醫學暨工程學院_(生物醫學工程學系)[博]",
+        "departmentId": "7086F2AE-2077-47C3-9F35-E454261FEAF6"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_生物醫學暨工程學院_(生物醫學工程學系)[碩]",
+        "departmentId": "709EE674-0D8C-48B5-9998-D7D6F89E373F"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_生物醫學暨工程學院_(生醫光電研究所)[博]",
+        "departmentId": "06E27328-FEDE-484C-87CC-94A7144CC6D3"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_生物醫學暨工程學院_(生醫光電研究所)[碩]",
+        "departmentId": "13F74B04-E40D-4E5B-8D54-DE2DE8D8B777"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_生物醫學暨工程學院_(光電博士學位學程(台灣聯合大學系統))[博]",
+        "departmentId": "B1DB04C7-57FF-42FE-9211-5A47C72B5E26"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_生物醫學暨工程學院_(物理治療暨輔助科技學系)[博]",
+        "departmentId": "86A272DD-5E74-4B16-B94A-4D3DBDF5ACE1"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_生物醫學暨工程學院_(物理治療暨輔助科技學系)[碩]",
+        "departmentId": "B2A0F4E6-E13E-4A17-BDD2-9127BB81E9DD"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_生物醫學暨工程學院_(醫學生物技術暨檢驗學系)[博]",
+        "departmentId": "2CFE1B07-97A3-4B81-8C99-9413D873E69F"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_生物醫學暨工程學院_(醫學生物技術暨檢驗學系)[碩]",
+        "departmentId": "E8719343-BA9B-495D-A175-442BDEC904F1"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_生命科學院_(分子醫學博士學位學程)[博]",
+        "departmentId": "A6EBBDA0-6496-4987-87FC-CBC6459EE095"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_生命科學院_(生化暨分子生物研究所)[博]",
+        "departmentId": "78E4F072-C2E2-41E0-BA3D-F5E6A6419AB6"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_生命科學院_(生化暨分子生物研究所)[碩]",
+        "departmentId": "321288B6-5C47-46CD-A365-5072A3C4431D"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_生命科學院_(生命科學院)[碩]",
+        "departmentId": "88244AA6-FC91-41A8-845A-BB1B0DF8DA25"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_生命科學院_(生命科學系暨基因體科學研究所)[博]",
+        "departmentId": "E6CFA001-18E5-4A28-961F-B9CB88B3599B"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_生命科學院_(生命科學系暨基因體科學研究所)[碩]",
+        "departmentId": "B20AD871-994A-4904-A603-71664E885651"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_生命科學院_(生技醫療產業博士學位學程)[博]",
+        "departmentId": "840AE805-B19B-4BE8-A6E2-C4EEFF417008"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_生命科學院_(神經科學研究所)[博]",
+        "departmentId": "BFC4750B-06D8-44EE-93F3-D355CE23F3AB"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_生命科學院_(神經科學研究所)[碩]",
+        "departmentId": "DBBF8086-1475-4CBE-9610-06329DB022F8"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_生命科學院_(微生物及免疫學研究所)[博]",
+        "departmentId": "01BEDEA4-098D-4412-8DCF-6F4BA484038F"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_生命科學院_(微生物及免疫學研究所)[碩]",
+        "departmentId": "195C5A5B-4BB8-4B3F-965C-B2BF72CF97F4"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_生命科學院_(跨領域神經科學國際研究生博士學位學程)[博]",
+        "departmentId": "A7CBCDCD-4375-4CE0-8276-6CA62C606D7A"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_生命科學院_(跨領域神經科學博士學位學程 (台灣聯合大學系統))[博]",
+        "departmentId": "C0DB8AB9-A68F-4F69-9612-B0DA5108A824"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_人文與社會科學院_(亞際文化研究國際碩士學位學程(台灣聯合大學系統))[碩]",
+        "departmentId": "1BE431A4-EDA9-4B78-943F-07E8325CA96F"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_人文與社會科學院_(心智哲學研究所)[碩]",
+        "departmentId": "FB596805-0704-444B-9382-CEB9950BF3C8"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_人文與社會科學院_(科技與社會研究所)[碩]",
+        "departmentId": "2EFB40C8-47BA-475D-BE91-337B779F1A30"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_人文與社會科學院_IVS(視覺文化研究所)[碩]",
+        "departmentId": "B5B9065E-AD3C-472E-BDB4-9E7682180271"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_工學院_ICV(土木工程學系)[碩]",
+        "departmentId": "52AA5301-0713-48B6-817E-07CE0041FCD4"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_工學院_IEV(環境工程研究所)[碩]",
+        "departmentId": "7528328B-140A-4777-AADC-B1DB034FD90F"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_工學院_IMA(材料科學與工程學系)[博]",
+        "departmentId": "E37FBF30-031F-480F-928F-5DD5DABC9D49"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_工學院_IMA(材料科學與工程學系)[碩]",
+        "departmentId": "5970369B-F0A8-4236-AF0F-3261573B6CC2"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_工學院_IME(機械工程學系)[碩]",
+        "departmentId": "6EA6ACDE-8519-4C34-A64C-7D1E7EF5F331"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_工學院_INT(材料科學與工程學系奈米科技碩博班)[碩]",
+        "departmentId": "DC7EDBD9-163D-4D10-B2C0-0B2C52EA9220"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_工學院_SSE(太空系統工程研究所)[碩]",
+        "departmentId": "361014F0-C7B0-ED11-8603-005056816DA7"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_理學院_IAC(應用化學系)[碩]",
+        "departmentId": "8F93E581-C5C5-4D6A-9608-3AE0220B377B"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_理學院_IAM(應用數學系)[碩]",
+        "departmentId": "1E6033DF-9E59-4AE3-A553-583E11583D47"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_理學院_IEP(電子物理學系)[碩]",
+        "departmentId": "41BD6B9E-1F68-4F9C-9762-12776BE7A147"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_理學院_IMM(應用數學系數學建模與科學計算碩士班)[碩]",
+        "departmentId": "703453A3-CF45-4277-A402-C5C16BC4C9E1"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_理學院_IMO(應用化學系分子科學碩博班)[碩]",
+        "departmentId": "4A98AF77-4001-4569-AB8F-5C7907D1ADDF"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_理學院_IOP(物理研究所)[碩]",
+        "departmentId": "EBBCC9FB-890B-47DD-9FE6-C865633444BC"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_理學院_IOS(理學院院本部)[碩]",
+        "departmentId": "711EAA07-BBA2-4F80-93BF-5FD04A8E612F"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_理學院_IST(統計學研究所)[碩]",
+        "departmentId": "DA5BA833-FBD2-4842-8445-5DA53A84F2C5"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_管理學院_GMBA(企業管理碩士學位學程)[碩]",
+        "departmentId": "DEB2325B-3B51-4F08-8CD8-CD1AA022F182"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_管理學院_IBM(經營管理研究所)[碩]",
+        "departmentId": "9A7AD1DC-50DE-4485-A113-F4D8D2757FCB"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_管理學院_IEM(工業工程與管理學系)[博]",
+        "departmentId": "DA57C7B0-CD1D-41FD-84D0-90DA984965F0"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_管理學院_IEM(工業工程與管理學系)[碩]",
+        "departmentId": "82B98FB5-EE9C-4751-A3C1-1C772C204240"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_管理學院_IIM(資訊管理研究所)[博]",
+        "departmentId": "39F6F2B7-EC53-4B61-859B-D9A38810EDF8"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_管理學院_IIM(資訊管理研究所)[碩]",
+        "departmentId": "D4265A63-B2D4-4233-9775-FE583D7E39AB"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_管理學院_IMS(管理科學系)[博]",
+        "departmentId": "9BC91368-354A-4EC7-A12E-4E29296A1560"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_管理學院_IMS(管理科學系)[碩]",
+        "departmentId": "FFC961F1-2C03-4FB3-870B-FB60725FDCE3"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_管理學院_IOF(資訊管理與財務金融系財務金融博士班)[博]",
+        "departmentId": "6332E3E4-F5B3-4E94-81DC-2B5CD324F8BD"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_管理學院_IOF(資訊管理與財務金融系財務金融碩博士班)[碩]",
+        "departmentId": "78B86127-A99A-4DCB-9650-B5C8D8F39B59"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_管理學院_ITM(科技管理研究所)[博]",
+        "departmentId": "97537DAF-3799-448C-AD41-7E6B37B3555D"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_管理學院_ITM(科技管理研究所)[碩]",
+        "departmentId": "1A52EEB5-2A5E-4DB9-B6A6-960369C484DE"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_管理學院_ITS(運輸與物流管理學系交通運輸碩博士班)[博]",
+        "departmentId": "746B061D-7159-4B5C-8891-9898199350CF"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_管理學院_ITS(運輸與物流管理學系交通運輸碩博士班)[碩]",
+        "departmentId": "A81D8BD9-229D-4E17-8966-0544BDF3BE34"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_管理學院_ITT(運輸與物流管理學系物流管理碩博士班)[碩]",
+        "departmentId": "D07005FB-64B9-4C7E-89BB-5BDAAFCCF9E0"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_生物科技學院_DBSE(生物科技學院產業博士班)[博]",
+        "departmentId": "C655F929-C848-49DC-A872-FB6FEEA29659"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_生物科技學院_IBE(分子醫學與生物工程研究所)[博]",
+        "departmentId": "8E4CA455-12D6-489D-A7A7-6507B048474E"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_生物科技學院_IBE(分子醫學與生物工程研究所)[碩]",
+        "departmentId": "C83DD0DE-7231-46B6-AE00-70B6D379564E"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_生物科技學院_IBI(生物資訊及系統生物研究所)[博]",
+        "departmentId": "4E4EC294-E2F0-4A2E-94A8-E0E3E5F8204D"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_生物科技學院_IBI(生物資訊及系統生物研究所)[碩]",
+        "departmentId": "C3B4AAC5-2FD4-4EAD-BFD3-BA9063CB01F0"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_生物科技學院_IBT(生物科技學系)[博]",
+        "departmentId": "733B1BEC-6ACA-4DB7-B34F-8E6D15B3997F"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_生物科技學院_IBT(生物科技學系)[碩]",
+        "departmentId": "C417A8E1-FBE2-4D99-BDB5-5C27DB9A2F4D"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_人文社會學院_IAA(應用藝術研究所)[碩]",
+        "departmentId": "92FE9A22-3F52-4AC1-AA35-E975A91C75DA"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_人文社會學院_IAR(建築研究所)[碩]",
+        "departmentId": "C968B0A7-D6BC-4EC3-AA85-73709C81D5BE"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_人文社會學院_ICS(社會與文化研究所)[博]",
+        "departmentId": "AC49AA82-16C6-4202-8D26-34E727C9FCF6"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_人文社會學院_ICS(社會與文化研究所)[碩]",
+        "departmentId": "79E1732D-99B0-4766-99BB-C2F15042E9AC"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_人文社會學院_ICT(傳播研究所)[碩]",
+        "departmentId": "B30BAB23-F209-4C0B-B78C-69FA82B4845C"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_人文社會學院_IED(教育研究所)[碩]",
+        "departmentId": "B5BB6F71-1D6C-4050-BD7B-CA6B0558A7B7"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_人文社會學院_ILC(外國語文學系外國文學與語言學碩士班)[碩]",
+        "departmentId": "100009B7-D98B-4DA2-8FBF-6F5332B89390"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_人文社會學院_IMU(音樂研究所)[碩]",
+        "departmentId": "1C17515A-85E6-4D27-B731-5B1792BEEA60"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_人文社會學院_ITE(英語教學研究所)[碩]",
+        "departmentId": "4773A07E-3455-436F-A514-D4971F2FC14A"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_客家文化學院_ICH(傳播與科技學系)[碩]",
+        "departmentId": "FAC06B29-190D-4650-B7EB-10ADEB0D6B0A"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_客家文化學院_IHP(客家文化學院博士班)[博]",
+        "departmentId": "A9611F73-D3D3-4C46-B809-AB9CEF6A9F11"
+    },
+    {
+        "departmentPath": "研究所課程_一般研究所_客家文化學院_INA(人文社會學系族群與文化碩士班)[碩]",
+        "departmentId": "4A23E657-FDC9-46ED-915D-A0E02F4A8F81"
+    },
+    {
+        "departmentPath": "研究所課程_EMBA_管理學院_IBA(高階主管管理碩士學程)[碩]",
+        "departmentId": "A9F5FF55-A079-477C-9527-564D092F10C7"
+    },
+    {
+        "departmentPath": "研究所課程_在職專班_電機學院_IEC(電機學院碩士在職專班)[碩]",
+        "departmentId": "74E5BE29-E5B7-44D4-B3AE-EDDD225E2A93"
+    },
+    {
+        "departmentPath": "研究所課程_在職專班_光電學院_DPPS(光電系統研究所碩士在職專班)[碩]",
+        "departmentId": "EB83625B-E1BE-ED11-8603-005056816DA7"
+    },
+    {
+        "departmentPath": "研究所課程_在職專班_科技法律學院_ITL(科技法律研究所碩士在職專班)[碩]",
+        "departmentId": "E2EF737A-BF42-408A-A2B3-59533017F7C2"
+    },
+    {
+        "departmentPath": "研究所課程_在職專班_資訊學院_ICTCI(資訊學院科技犯罪偵查資通訊碩士在職專班)[碩]",
+        "departmentId": "FDD8D866-AE17-ED11-85FB-005056816DA7"
+    },
+    {
+        "departmentPath": "研究所課程_在職專班_資訊學院_IPC(資訊學院碩士在職專班)[碩]",
+        "departmentId": "37DE4675-C3B4-404E-B7E5-025E693C13DD"
+    },
+    {
+        "departmentPath": "研究所課程_在職專班_資訊學院_PCM(國防資安管理碩士在職專班)[碩]",
+        "departmentId": "A7F33BE7-09B8-471D-B037-7366CD48C1E2"
+    },
+    {
+        "departmentPath": "研究所課程_在職專班_醫學院_(醫務管理研究所)[碩]",
+        "departmentId": "EA4D5932-76F8-4C11-BF93-4E1793488B3A"
+    },
+    {
+        "departmentPath": "研究所課程_在職專班_醫學院_(臨床醫學研究所)[碩]",
+        "departmentId": "B523BDAE-BA87-417A-B637-71BD9A4B6CBD"
+    },
+    {
+        "departmentPath": "研究所課程_在職專班_護理學院_(護理學系)[碩]",
+        "departmentId": "ECAAEECE-F4B2-453C-8AA5-A332B6279994"
+    },
+    {
+        "departmentPath": "研究所課程_在職專班_生命科學院_(生技醫療經營管理碩士在職學位學程)[碩]",
+        "departmentId": "666261DF-7861-4380-BB7E-7958539CDC12"
+    },
+    {
+        "departmentPath": "研究所課程_在職專班_工學院_IAP(工學院碩士在職專班-精密組)[碩]",
+        "departmentId": "8295113B-FFF7-4AD9-A7CB-2B372A8CB71F"
+    },
+    {
+        "departmentPath": "研究所課程_在職專班_工學院_IMI(工學院碩士在職專班-工程管理組)[碩]",
+        "departmentId": "8FC7C3E2-F857-431A-9716-DC9C05C4AA64"
+    },
+    {
+        "departmentPath": "研究所課程_在職專班_工學院_ISE(工學院碩士在職專班-半導體組)[碩]",
+        "departmentId": "9FA73A9C-3D78-4A4F-98B0-D32BBA16F024"
+    },
+    {
+        "departmentPath": "研究所課程_在職專班_工學院_ISR(工學院碩士在職專班-產安組)[碩]",
+        "departmentId": "571ADF90-0648-4891-87C4-1840CF588EC0"
+    },
+    {
+        "departmentPath": "研究所課程_在職專班_理學院_IAT(理學院碩士在職專班-應用科技組)[碩]",
+        "departmentId": "A7BCCB44-6DEE-4495-A837-8CDDE7A73726"
+    },
+    {
+        "departmentPath": "研究所課程_在職專班_理學院_INE(理學院碩士在職專班-科技與數位學習組)[碩]",
+        "departmentId": "949C4815-DF77-4A16-8370-06D7FB17C0B4"
+    },
+    {
+        "departmentPath": "研究所課程_在職專班_管理學院_IBM(管理學院碩士在職專班-經管組)[碩]",
+        "departmentId": "A8A7D5C3-9AC4-49E4-A799-3B53CBD46CCE"
+    },
+    {
+        "departmentPath": "研究所課程_在職專班_管理學院_IEM(管理學院碩士在職專班-工管組)[碩]",
+        "departmentId": "7B1AC97F-AB3C-4A03-AFC4-8B3F825AB632"
+    },
+    {
+        "departmentPath": "研究所課程_在職專班_管理學院_IIM(管理學院碩士在職專班-資管組)[碩]",
+        "departmentId": "219FB90A-3490-4DDC-8FF6-CF9B4EDFA833"
+    },
+    {
+        "departmentPath": "研究所課程_在職專班_管理學院_IMS(管理學院碩士在職專班-管科組)[碩]",
+        "departmentId": "483A74DF-13DF-40D6-B125-AE7D2F2946BA"
+    },
+    {
+        "departmentPath": "研究所課程_在職專班_管理學院_IOF(管理學院碩士在職專班-財金組)[碩]",
+        "departmentId": "2842CA5A-8AA1-42DC-BBE5-4293B8F327D1"
+    },
+    {
+        "departmentPath": "研究所課程_在職專班_管理學院_IOM(管理學院專班(共同課程))[碩]",
+        "departmentId": "EC58F85D-9C97-4521-B274-EE205D81F071"
+    },
+    {
+        "departmentPath": "研究所課程_在職專班_管理學院_ITM(管理學院碩士在職專班-科管組)[碩]",
+        "departmentId": "36D1A068-8A6B-4536-9015-D178A59577EC"
+    },
+    {
+        "departmentPath": "研究所課程_在職專班_管理學院_ITT(管理學院碩士在職專班-物流組)[碩]",
+        "departmentId": "0C87ACDD-C358-45D3-8755-BA09FA213506"
+    },
+    {
+        "departmentPath": "研究所課程_在職專班_客家文化學院_IHC(客家社會與文化碩士在職專班)[碩]",
+        "departmentId": "30B55C0F-1EF3-4B53-8EF8-3D26A8DDDC87"
+    },
+    {
+        "departmentPath": "研究所課程_產業專班_生物科技學院_MECB(工程與計算生醫產業碩士專班)[碩]",
+        "departmentId": "7B7011B8-40B9-EC11-85F7-005056816DA7"
+    },
+    {
+        "departmentPath": "研究所課程_碩(博)士學位學程_電機學院_AIG(人工智慧技術與應用碩士學位學程)[碩]",
+        "departmentId": "959D70AB-C5F4-408C-9BDF-3AC79C12FB18"
+    },
+    {
+        "departmentPath": "研究所課程_碩(博)士學位學程_電機學院_ECS(電機資訊國際博士學位學程)[博]",
+        "departmentId": "F00EDD06-BBF6-4E4F-AF53-174E267DBFA7"
+    },
+    {
+        "departmentPath": "研究所課程_碩(博)士學位學程_電機學院_ECS(電機資訊國際碩士學位學程)[碩]",
+        "departmentId": "112DEFF0-F33B-4DDC-A2C8-53E522C564C2"
+    },
+    {
+        "departmentPath": "研究所課程_碩(博)士學位學程_電機學院_IPP(光電博士學位學程)[博]",
+        "departmentId": "A39B7D7F-6618-4C41-ABC8-2079150D7402"
+    },
+    {
+        "departmentPath": "研究所課程_碩(博)士學位學程_資訊學院_GDP(資通安全碩士學位學程)[碩]",
+        "departmentId": "2F948F0B-76D2-4A1E-8B45-D784A3B2745C"
+    },
+    {
+        "departmentPath": "研究所課程_碩(博)士學位學程_資訊學院_INS(網路與資訊系統博士學位學程)[博]",
+        "departmentId": "0B79C790-6D3B-4581-A4B3-88AE3CD9AC2E"
+    },
+    {
+        "departmentPath": "研究所課程_碩(博)士學位學程_藥物科學院_PRSP(醫藥品法規科學博士學位學程)[博]",
+        "departmentId": "216E37DD-E171-ED11-8600-005056816DA7"
+    },
+    {
+        "departmentPath": "研究所課程_碩(博)士學位學程_生命科學院_IMPMM(跨領域分子醫學碩士學位學程)[碩]",
+        "departmentId": "2983F75F-E171-ED11-8600-005056816DA7"
+    },
+    {
+        "departmentPath": "研究所課程_碩(博)士學位學程_工學院_EVT(環境科技博士學位學程)[博]",
+        "departmentId": "BAA388EB-C2AA-4B49-A14C-017860ADA846"
+    },
+    {
+        "departmentPath": "研究所課程_碩(博)士學位學程_工學院_ROB(機器人碩士學位學程)[碩]",
+        "departmentId": "88250CAD-55F7-45E2-B9A4-D551D323B757"
+    },
+    {
+        "departmentPath": "研究所課程_碩(博)士學位學程_理學院_ISC(永續化學科技國際研究生博士學位學程)[博]",
+        "departmentId": "EDC7E790-2AD9-413C-8B74-54C9DE81770F"
+    },
+    {
+        "departmentPath": "研究所課程_碩(博)士學位學程_生物科技學院_IBN(跨領域神經科學博士學位學程)[博]",
+        "departmentId": "1B176E21-A0DD-4340-A1C8-D7766610F746"
+    },
+    {
+        "departmentPath": "研究所課程_碩(博)士學位學程_生物科技學院_IBS(生醫科學與工程博士學位學程)[博]",
+        "departmentId": "6471BDB2-3BF4-4542-9322-7C56213ACFF3"
+    },
+    {
+        "departmentPath": "研究所課程_碩(博)士學位學程_人文社會學院_IAS(亞際文化研究國際碩士學位學程)[碩]",
+        "departmentId": "FF87B9A6-D6BC-4D84-A556-B87D575DE880"
+    },
+    {
+        "departmentPath": "學士班共同課程_校共同課程_通識",
+        "departmentId": "F820DFDB-0D95-48BC-B9D9-F7939405AD83"
+    },
+    {
+        "departmentPath": "學士班共同課程_校共同課程_外語",
+        "departmentId": "F6B39FA0-2284-4B93-B1CF-8ECFF1111A2E"
+    },
+    {
+        "departmentPath": "學士班共同課程_校共同課程_體育",
+        "departmentId": "8077C844-67A2-450B-B39A-A6CC7DE5C114"
+    },
+    {
+        "departmentPath": "學士班共同課程_校共同課程_物理",
+        "departmentId": "867086D9-6B6D-46F8-8F76-CC6B834551DB"
+    },
+    {
+        "departmentPath": "學士班共同課程_校共同課程_微積分",
+        "departmentId": "49552B82-2C24-4355-AA37-2E503351C46B"
+    },
+    {
+        "departmentPath": "學士班共同課程_校共同課程_服務學習",
+        "departmentId": "E4B848D2-58DF-43DD-998B-CC5E9883A416"
+    },
+    {
+        "departmentPath": "學士班共同課程_校共同課程_核心課程",
+        "departmentId": "A91F7169-A56F-4612-85DE-2AC40893212C"
+    },
+    {
+        "departmentPath": "學士班共同課程_校共同課程_語言與溝通",
+        "departmentId": "73C2345A-FC19-4A39-8BCD-A7B400E19F3B"
+    },
+    {
+        "departmentPath": "學士班共同課程_院共同課程_資訊學院共同課程",
+        "departmentId": "3FDEE98E-1A4F-4DE3-847B-ED0061569CC8"
+    },
+    {
+        "departmentPath": "學士班共同課程_院共同課程_電機學院與資訊學院共同課程",
+        "departmentId": "563DD406-1FDD-4589-8684-32BEF9F65A83"
+    },
+    {
+        "departmentPath": "學士班共同課程_院共同課程_電機共同課程",
+        "departmentId": "75F46684-4732-47B1-8894-E22C9FA6C5A2"
+    },
+    {
+        "departmentPath": "學士班共同課程_院共同課程_管理學院共同課程",
+        "departmentId": "8661CF60-9CD1-4CDB-A5AE-9B9DA633F086"
+    },
+    {
+        "departmentPath": "其他課程_台中一中科學班_台中一中科學班",
+        "departmentId": "60A7936E-B0C0-4C0F-9DE7-33D16A367F20"
+    },
+    {
+        "departmentPath": "其他課程_台中一中科學班_寫作中心",
+        "departmentId": "2ED22A78-1B95-48B0-B4F0-E9A400786E1E"
+    },
+    {
+        "departmentPath": "其他課程_台中一中科學班_教學發展中心",
+        "departmentId": "EDC2AE3B-55E0-40CB-8DA1-BAF46ABAAA7C"
+    },
+    {
+        "departmentPath": "其他課程_台中一中科學班_華語中心",
+        "departmentId": "1198DE94-5BBA-49F0-92C5-9CA7368E945C"
+    },
+    {
+        "departmentPath": "其他課程_台中一中科學班_資訊技術服務中心",
+        "departmentId": "C10B4D97-F139-4EE3-9A4F-F2A6EE8D69A5"
+    },
+    {
+        "departmentPath": "其他課程_台中一中科學班_創創工坊",
+        "departmentId": "4F7E4186-F826-47A4-87F9-975C7F604D9A"
+    },
+    {
+        "departmentPath": "其他課程_台中一中科學班_生物資訊學程",
+        "departmentId": "9E6E0677-B0EC-41FC-9925-52DAC5BEABA2"
+    },
+    {
+        "departmentPath": "其他課程_台中一中科學班_博雅書苑",
+        "departmentId": "A91F7169-A56F-4612-85DE-2AC40893212C"
+    },
+    {
+        "departmentPath": "其他課程_台中一中科學班_混合實境微學程",
+        "departmentId": "EDEF847C-E786-4839-8191-F935CE483F9F"
+    },
+    {
+        "departmentPath": "其他課程_台中一中科學班_軍訓",
+        "departmentId": "4DE7074F-B05F-4620-8F5E-12DF3778B52E"
+    },
+    {
+        "departmentPath": "其他課程_寫作中心_台中一中科學班",
+        "departmentId": "60A7936E-B0C0-4C0F-9DE7-33D16A367F20"
+    },
+    {
+        "departmentPath": "其他課程_寫作中心_寫作中心",
+        "departmentId": "2ED22A78-1B95-48B0-B4F0-E9A400786E1E"
+    },
+    {
+        "departmentPath": "其他課程_寫作中心_教學發展中心",
+        "departmentId": "EDC2AE3B-55E0-40CB-8DA1-BAF46ABAAA7C"
+    },
+    {
+        "departmentPath": "其他課程_寫作中心_華語中心",
+        "departmentId": "1198DE94-5BBA-49F0-92C5-9CA7368E945C"
+    },
+    {
+        "departmentPath": "其他課程_寫作中心_資訊技術服務中心",
+        "departmentId": "C10B4D97-F139-4EE3-9A4F-F2A6EE8D69A5"
+    },
+    {
+        "departmentPath": "其他課程_寫作中心_創創工坊",
+        "departmentId": "4F7E4186-F826-47A4-87F9-975C7F604D9A"
+    },
+    {
+        "departmentPath": "其他課程_寫作中心_生物資訊學程",
+        "departmentId": "9E6E0677-B0EC-41FC-9925-52DAC5BEABA2"
+    },
+    {
+        "departmentPath": "其他課程_寫作中心_博雅書苑",
+        "departmentId": "A91F7169-A56F-4612-85DE-2AC40893212C"
+    },
+    {
+        "departmentPath": "其他課程_寫作中心_混合實境微學程",
+        "departmentId": "EDEF847C-E786-4839-8191-F935CE483F9F"
+    },
+    {
+        "departmentPath": "其他課程_寫作中心_軍訓",
+        "departmentId": "4DE7074F-B05F-4620-8F5E-12DF3778B52E"
+    },
+    {
+        "departmentPath": "其他課程_教學發展中心_台中一中科學班",
+        "departmentId": "60A7936E-B0C0-4C0F-9DE7-33D16A367F20"
+    },
+    {
+        "departmentPath": "其他課程_教學發展中心_寫作中心",
+        "departmentId": "2ED22A78-1B95-48B0-B4F0-E9A400786E1E"
+    },
+    {
+        "departmentPath": "其他課程_教學發展中心_教學發展中心",
+        "departmentId": "EDC2AE3B-55E0-40CB-8DA1-BAF46ABAAA7C"
+    },
+    {
+        "departmentPath": "其他課程_教學發展中心_華語中心",
+        "departmentId": "1198DE94-5BBA-49F0-92C5-9CA7368E945C"
+    },
+    {
+        "departmentPath": "其他課程_教學發展中心_資訊技術服務中心",
+        "departmentId": "C10B4D97-F139-4EE3-9A4F-F2A6EE8D69A5"
+    },
+    {
+        "departmentPath": "其他課程_教學發展中心_創創工坊",
+        "departmentId": "4F7E4186-F826-47A4-87F9-975C7F604D9A"
+    },
+    {
+        "departmentPath": "其他課程_教學發展中心_生物資訊學程",
+        "departmentId": "9E6E0677-B0EC-41FC-9925-52DAC5BEABA2"
+    },
+    {
+        "departmentPath": "其他課程_教學發展中心_博雅書苑",
+        "departmentId": "A91F7169-A56F-4612-85DE-2AC40893212C"
+    },
+    {
+        "departmentPath": "其他課程_教學發展中心_混合實境微學程",
+        "departmentId": "EDEF847C-E786-4839-8191-F935CE483F9F"
+    },
+    {
+        "departmentPath": "其他課程_教學發展中心_軍訓",
+        "departmentId": "4DE7074F-B05F-4620-8F5E-12DF3778B52E"
+    },
+    {
+        "departmentPath": "其他課程_華語中心_台中一中科學班",
+        "departmentId": "60A7936E-B0C0-4C0F-9DE7-33D16A367F20"
+    },
+    {
+        "departmentPath": "其他課程_華語中心_寫作中心",
+        "departmentId": "2ED22A78-1B95-48B0-B4F0-E9A400786E1E"
+    },
+    {
+        "departmentPath": "其他課程_華語中心_教學發展中心",
+        "departmentId": "EDC2AE3B-55E0-40CB-8DA1-BAF46ABAAA7C"
+    },
+    {
+        "departmentPath": "其他課程_華語中心_華語中心",
+        "departmentId": "1198DE94-5BBA-49F0-92C5-9CA7368E945C"
+    },
+    {
+        "departmentPath": "其他課程_華語中心_資訊技術服務中心",
+        "departmentId": "C10B4D97-F139-4EE3-9A4F-F2A6EE8D69A5"
+    },
+    {
+        "departmentPath": "其他課程_華語中心_創創工坊",
+        "departmentId": "4F7E4186-F826-47A4-87F9-975C7F604D9A"
+    },
+    {
+        "departmentPath": "其他課程_華語中心_生物資訊學程",
+        "departmentId": "9E6E0677-B0EC-41FC-9925-52DAC5BEABA2"
+    },
+    {
+        "departmentPath": "其他課程_華語中心_博雅書苑",
+        "departmentId": "A91F7169-A56F-4612-85DE-2AC40893212C"
+    },
+    {
+        "departmentPath": "其他課程_華語中心_混合實境微學程",
+        "departmentId": "EDEF847C-E786-4839-8191-F935CE483F9F"
+    },
+    {
+        "departmentPath": "其他課程_華語中心_軍訓",
+        "departmentId": "4DE7074F-B05F-4620-8F5E-12DF3778B52E"
+    },
+    {
+        "departmentPath": "其他課程_資訊技術服務中心_台中一中科學班",
+        "departmentId": "60A7936E-B0C0-4C0F-9DE7-33D16A367F20"
+    },
+    {
+        "departmentPath": "其他課程_資訊技術服務中心_寫作中心",
+        "departmentId": "2ED22A78-1B95-48B0-B4F0-E9A400786E1E"
+    },
+    {
+        "departmentPath": "其他課程_資訊技術服務中心_教學發展中心",
+        "departmentId": "EDC2AE3B-55E0-40CB-8DA1-BAF46ABAAA7C"
+    },
+    {
+        "departmentPath": "其他課程_資訊技術服務中心_華語中心",
+        "departmentId": "1198DE94-5BBA-49F0-92C5-9CA7368E945C"
+    },
+    {
+        "departmentPath": "其他課程_資訊技術服務中心_資訊技術服務中心",
+        "departmentId": "C10B4D97-F139-4EE3-9A4F-F2A6EE8D69A5"
+    },
+    {
+        "departmentPath": "其他課程_資訊技術服務中心_創創工坊",
+        "departmentId": "4F7E4186-F826-47A4-87F9-975C7F604D9A"
+    },
+    {
+        "departmentPath": "其他課程_資訊技術服務中心_生物資訊學程",
+        "departmentId": "9E6E0677-B0EC-41FC-9925-52DAC5BEABA2"
+    },
+    {
+        "departmentPath": "其他課程_資訊技術服務中心_博雅書苑",
+        "departmentId": "A91F7169-A56F-4612-85DE-2AC40893212C"
+    },
+    {
+        "departmentPath": "其他課程_資訊技術服務中心_混合實境微學程",
+        "departmentId": "EDEF847C-E786-4839-8191-F935CE483F9F"
+    },
+    {
+        "departmentPath": "其他課程_資訊技術服務中心_軍訓",
+        "departmentId": "4DE7074F-B05F-4620-8F5E-12DF3778B52E"
+    },
+    {
+        "departmentPath": "其他課程_創創工坊_台中一中科學班",
+        "departmentId": "60A7936E-B0C0-4C0F-9DE7-33D16A367F20"
+    },
+    {
+        "departmentPath": "其他課程_創創工坊_寫作中心",
+        "departmentId": "2ED22A78-1B95-48B0-B4F0-E9A400786E1E"
+    },
+    {
+        "departmentPath": "其他課程_創創工坊_教學發展中心",
+        "departmentId": "EDC2AE3B-55E0-40CB-8DA1-BAF46ABAAA7C"
+    },
+    {
+        "departmentPath": "其他課程_創創工坊_華語中心",
+        "departmentId": "1198DE94-5BBA-49F0-92C5-9CA7368E945C"
+    },
+    {
+        "departmentPath": "其他課程_創創工坊_資訊技術服務中心",
+        "departmentId": "C10B4D97-F139-4EE3-9A4F-F2A6EE8D69A5"
+    },
+    {
+        "departmentPath": "其他課程_創創工坊_創創工坊",
+        "departmentId": "4F7E4186-F826-47A4-87F9-975C7F604D9A"
+    },
+    {
+        "departmentPath": "其他課程_創創工坊_生物資訊學程",
+        "departmentId": "9E6E0677-B0EC-41FC-9925-52DAC5BEABA2"
+    },
+    {
+        "departmentPath": "其他課程_創創工坊_博雅書苑",
+        "departmentId": "A91F7169-A56F-4612-85DE-2AC40893212C"
+    },
+    {
+        "departmentPath": "其他課程_創創工坊_混合實境微學程",
+        "departmentId": "EDEF847C-E786-4839-8191-F935CE483F9F"
+    },
+    {
+        "departmentPath": "其他課程_創創工坊_軍訓",
+        "departmentId": "4DE7074F-B05F-4620-8F5E-12DF3778B52E"
+    },
+    {
+        "departmentPath": "其他課程_生物資訊學程_台中一中科學班",
+        "departmentId": "60A7936E-B0C0-4C0F-9DE7-33D16A367F20"
+    },
+    {
+        "departmentPath": "其他課程_生物資訊學程_寫作中心",
+        "departmentId": "2ED22A78-1B95-48B0-B4F0-E9A400786E1E"
+    },
+    {
+        "departmentPath": "其他課程_生物資訊學程_教學發展中心",
+        "departmentId": "EDC2AE3B-55E0-40CB-8DA1-BAF46ABAAA7C"
+    },
+    {
+        "departmentPath": "其他課程_生物資訊學程_華語中心",
+        "departmentId": "1198DE94-5BBA-49F0-92C5-9CA7368E945C"
+    },
+    {
+        "departmentPath": "其他課程_生物資訊學程_資訊技術服務中心",
+        "departmentId": "C10B4D97-F139-4EE3-9A4F-F2A6EE8D69A5"
+    },
+    {
+        "departmentPath": "其他課程_生物資訊學程_創創工坊",
+        "departmentId": "4F7E4186-F826-47A4-87F9-975C7F604D9A"
+    },
+    {
+        "departmentPath": "其他課程_生物資訊學程_生物資訊學程",
+        "departmentId": "9E6E0677-B0EC-41FC-9925-52DAC5BEABA2"
+    },
+    {
+        "departmentPath": "其他課程_生物資訊學程_博雅書苑",
+        "departmentId": "A91F7169-A56F-4612-85DE-2AC40893212C"
+    },
+    {
+        "departmentPath": "其他課程_生物資訊學程_混合實境微學程",
+        "departmentId": "EDEF847C-E786-4839-8191-F935CE483F9F"
+    },
+    {
+        "departmentPath": "其他課程_生物資訊學程_軍訓",
+        "departmentId": "4DE7074F-B05F-4620-8F5E-12DF3778B52E"
+    },
+    {
+        "departmentPath": "其他課程_博雅書苑_台中一中科學班",
+        "departmentId": "60A7936E-B0C0-4C0F-9DE7-33D16A367F20"
+    },
+    {
+        "departmentPath": "其他課程_博雅書苑_寫作中心",
+        "departmentId": "2ED22A78-1B95-48B0-B4F0-E9A400786E1E"
+    },
+    {
+        "departmentPath": "其他課程_博雅書苑_教學發展中心",
+        "departmentId": "EDC2AE3B-55E0-40CB-8DA1-BAF46ABAAA7C"
+    },
+    {
+        "departmentPath": "其他課程_博雅書苑_華語中心",
+        "departmentId": "1198DE94-5BBA-49F0-92C5-9CA7368E945C"
+    },
+    {
+        "departmentPath": "其他課程_博雅書苑_資訊技術服務中心",
+        "departmentId": "C10B4D97-F139-4EE3-9A4F-F2A6EE8D69A5"
+    },
+    {
+        "departmentPath": "其他課程_博雅書苑_創創工坊",
+        "departmentId": "4F7E4186-F826-47A4-87F9-975C7F604D9A"
+    },
+    {
+        "departmentPath": "其他課程_博雅書苑_生物資訊學程",
+        "departmentId": "9E6E0677-B0EC-41FC-9925-52DAC5BEABA2"
+    },
+    {
+        "departmentPath": "其他課程_博雅書苑_博雅書苑",
+        "departmentId": "A91F7169-A56F-4612-85DE-2AC40893212C"
+    },
+    {
+        "departmentPath": "其他課程_博雅書苑_混合實境微學程",
+        "departmentId": "EDEF847C-E786-4839-8191-F935CE483F9F"
+    },
+    {
+        "departmentPath": "其他課程_博雅書苑_軍訓",
+        "departmentId": "4DE7074F-B05F-4620-8F5E-12DF3778B52E"
+    },
+    {
+        "departmentPath": "其他課程_混合實境微學程_台中一中科學班",
+        "departmentId": "60A7936E-B0C0-4C0F-9DE7-33D16A367F20"
+    },
+    {
+        "departmentPath": "其他課程_混合實境微學程_寫作中心",
+        "departmentId": "2ED22A78-1B95-48B0-B4F0-E9A400786E1E"
+    },
+    {
+        "departmentPath": "其他課程_混合實境微學程_教學發展中心",
+        "departmentId": "EDC2AE3B-55E0-40CB-8DA1-BAF46ABAAA7C"
+    },
+    {
+        "departmentPath": "其他課程_混合實境微學程_華語中心",
+        "departmentId": "1198DE94-5BBA-49F0-92C5-9CA7368E945C"
+    },
+    {
+        "departmentPath": "其他課程_混合實境微學程_資訊技術服務中心",
+        "departmentId": "C10B4D97-F139-4EE3-9A4F-F2A6EE8D69A5"
+    },
+    {
+        "departmentPath": "其他課程_混合實境微學程_創創工坊",
+        "departmentId": "4F7E4186-F826-47A4-87F9-975C7F604D9A"
+    },
+    {
+        "departmentPath": "其他課程_混合實境微學程_生物資訊學程",
+        "departmentId": "9E6E0677-B0EC-41FC-9925-52DAC5BEABA2"
+    },
+    {
+        "departmentPath": "其他課程_混合實境微學程_博雅書苑",
+        "departmentId": "A91F7169-A56F-4612-85DE-2AC40893212C"
+    },
+    {
+        "departmentPath": "其他課程_混合實境微學程_混合實境微學程",
+        "departmentId": "EDEF847C-E786-4839-8191-F935CE483F9F"
+    },
+    {
+        "departmentPath": "其他課程_混合實境微學程_軍訓",
+        "departmentId": "4DE7074F-B05F-4620-8F5E-12DF3778B52E"
+    },
+    {
+        "departmentPath": "其他課程_軍訓_台中一中科學班",
+        "departmentId": "60A7936E-B0C0-4C0F-9DE7-33D16A367F20"
+    },
+    {
+        "departmentPath": "其他課程_軍訓_寫作中心",
+        "departmentId": "2ED22A78-1B95-48B0-B4F0-E9A400786E1E"
+    },
+    {
+        "departmentPath": "其他課程_軍訓_教學發展中心",
+        "departmentId": "EDC2AE3B-55E0-40CB-8DA1-BAF46ABAAA7C"
+    },
+    {
+        "departmentPath": "其他課程_軍訓_華語中心",
+        "departmentId": "1198DE94-5BBA-49F0-92C5-9CA7368E945C"
+    },
+    {
+        "departmentPath": "其他課程_軍訓_資訊技術服務中心",
+        "departmentId": "C10B4D97-F139-4EE3-9A4F-F2A6EE8D69A5"
+    },
+    {
+        "departmentPath": "其他課程_軍訓_創創工坊",
+        "departmentId": "4F7E4186-F826-47A4-87F9-975C7F604D9A"
+    },
+    {
+        "departmentPath": "其他課程_軍訓_生物資訊學程",
+        "departmentId": "9E6E0677-B0EC-41FC-9925-52DAC5BEABA2"
+    },
+    {
+        "departmentPath": "其他課程_軍訓_博雅書苑",
+        "departmentId": "A91F7169-A56F-4612-85DE-2AC40893212C"
+    },
+    {
+        "departmentPath": "其他課程_軍訓_混合實境微學程",
+        "departmentId": "EDEF847C-E786-4839-8191-F935CE483F9F"
+    },
+    {
+        "departmentPath": "其他課程_軍訓_軍訓",
+        "departmentId": "4DE7074F-B05F-4620-8F5E-12DF3778B52E"
+    },
+    {
+        "departmentPath": "學分學程_IMBA國際管理學分學程",
+        "departmentId": "0B3FCC2B-D5D1-4989-893F-5DB996AA187D"
+    },
+    {
+        "departmentPath": "學分學程_人社系:社會學與人類學學分學程",
+        "departmentId": "9AA264ED-AB45-4218-B62C-15C515EC5632"
+    },
+    {
+        "departmentPath": "學分學程_人社系:文化產業學分學程",
+        "departmentId": "B8E13731-40C6-43B8-B9D0-39EA7778CF43"
+    },
+    {
+        "departmentPath": "學分學程_人社系:族群與文化學分學程",
+        "departmentId": "2DC5D62B-70A5-4B45-82F9-E6B070264B74"
+    },
+    {
+        "departmentPath": "學分學程_人工智慧生醫應用學分學程",
+        "departmentId": "255057F5-E74E-4D00-9B87-5504FA042F39"
+    },
+    {
+        "departmentPath": "學分學程_創新科技藝術學分學程",
+        "departmentId": "A426BEEB-DA2C-49E2-8B21-D801ABF1209C"
+    },
+    {
+        "departmentPath": "學分學程_外文系:華語教學學分學程",
+        "departmentId": "5B1A00A6-E55B-4732-B807-D81A8880D531"
+    },
+    {
+        "departmentPath": "學分學程_太空科技與工程學分學程",
+        "departmentId": "12680AA6-8B37-474E-96BE-C872FA1AB379"
+    },
+    {
+        "departmentPath": "學分學程_客家學院:客家社會與文化學程",
+        "departmentId": "EB9A12BB-16E6-439E-B028-D8BE77ADD5C3"
+    },
+    {
+        "departmentPath": "學分學程_微菌轉譯研究學分學程",
+        "departmentId": "E25FE1D1-CF28-47D7-8B7E-F142EFEA208E"
+    },
+    {
+        "departmentPath": "學分學程_心理學學分學程",
+        "departmentId": "4EC8BE7C-DEE9-4067-BA63-7E465B87F4ED"
+    },
+    {
+        "departmentPath": "學分學程_智慧財產權學分學程",
+        "departmentId": "FB8F945A-A0C5-4904-9214-7DFAEEC99654"
+    },
+    {
+        "departmentPath": "學分學程_法律學分學程",
+        "departmentId": "F150FDDC-4248-4EAC-9442-CAD1D014C0B1"
+    },
+    {
+        "departmentPath": "學分學程_生物科技管理學程",
+        "departmentId": "AED73E28-B61A-47F8-A7BF-699E51D44E2D"
+    },
+    {
+        "departmentPath": "學分學程_生醫產業經營與法律學分學程",
+        "departmentId": "33F80913-7FED-40B4-8C5B-45BBD26155A7"
+    },
+    {
+        "departmentPath": "學分學程_管理學院:管理基礎學分學程",
+        "departmentId": "334FCAFF-BBEE-4C05-A9A7-4B87DB6796DF"
+    },
+    {
+        "departmentPath": "學分學程_美國法學分學程",
+        "departmentId": "FBBA2369-B7C3-44E4-A3B9-611C25C63135"
+    },
+    {
+        "departmentPath": "學分學程_聽語科學學分學程",
+        "departmentId": "F2B5C126-FB5D-4E0B-9E3B-C86C89A4CB7F"
+    },
+    {
+        "departmentPath": "學分學程_資料科學與智慧儀控學分學程",
+        "departmentId": "F2675EC6-2D90-4191-AB44-FE53F786A690"
+    },
+    {
+        "departmentPath": "學分學程_音樂學分學程",
+        "departmentId": "766C288E-B3E9-4F2C-B835-CC802F620CAE"
+    },
+    {
+        "departmentPath": "跨域學程_人工智慧跨域學程-工程與科學組",
+        "departmentId": "08EC89C6-92F2-4052-991B-4D2717ECA317"
+    },
+    {
+        "departmentPath": "跨域學程_護理學系智慧健康照護跨域學程",
+        "departmentId": "0BF7029D-8D64-EC11-85F1-005056816DA7"
+    },
+    {
+        "departmentPath": "跨域學程_心理學跨域學程",
+        "departmentId": "0FB2AEB1-D493-49D4-A2FD-3B597ECA9F4D"
+    },
+    {
+        "departmentPath": "跨域學程_運輸與物流管理學系跨域學程(B)外系學生",
+        "departmentId": "10DA5B9D-2D5C-4CCF-9204-236CBEBE340B"
+    },
+    {
+        "departmentPath": "跨域學程_材料科學與工程學系跨域學程(A)本系學生",
+        "departmentId": "12E9420F-104D-4724-A922-350E60CDF3D7"
+    },
+    {
+        "departmentPath": "跨域學程_說故事與多媒體跨域學程",
+        "departmentId": "1908531A-F394-46F5-BEAA-8B96AC5F109A"
+    },
+    {
+        "departmentPath": "跨域學程_人工智慧跨域學程-管理組",
+        "departmentId": "1E5783D1-E28B-492A-8B08-E588F79635A9"
+    },
+    {
+        "departmentPath": "跨域學程_人機智能與哲學跨域學程",
+        "departmentId": "22517AB9-5E58-43E5-89FA-780217F7CF7E"
+    },
+    {
+        "departmentPath": "跨域學程_生物科技學系-生物資訊工程跨域學程",
+        "departmentId": "2B64E7EF-2698-41BA-AA8B-4FBD74F88623"
+    },
+    {
+        "departmentPath": "跨域學程_傳播與科技學系跨域學程(B)外系學生",
+        "departmentId": "40060BB3-145C-4448-884C-C3FAFD441186"
+    },
+    {
+        "departmentPath": "跨域學程_電機工程學系-資訊工程跨域學程",
+        "departmentId": "49C731DB-3766-44FB-8036-D4062DC9D7A2"
+    },
+    {
+        "departmentPath": "跨域學程_電子工程學系-資訊工程跨域學程",
+        "departmentId": "4C4B9581-5FA7-474D-9435-0326570AB18F"
+    },
+    {
+        "departmentPath": "跨域學程_物理研究所跨域學程(B)外系學生",
+        "departmentId": "58C04749-6608-438E-8ACF-7E06125DB934"
+    },
+    {
+        "departmentPath": "跨域學程_人文社會學院跨領域設計與創新科技跨域學程",
+        "departmentId": "59CF9F1F-FA7C-43D1-8608-9601013D79AB"
+    },
+    {
+        "departmentPath": "跨域學程_人文社會學系跨域學程(A)本系學生",
+        "departmentId": "61F59637-EA0F-4EE5-9E1E-017B60A58DA2"
+    },
+    {
+        "departmentPath": "跨域學程_生物資訊及系統生物研究所跨域學程(B)外系學生",
+        "departmentId": "63697C65-B3EA-4AD8-AD96-3D2525D9D91E"
+    },
+    {
+        "departmentPath": "跨域學程_醫學系智慧健康照護跨域學程",
+        "departmentId": "69DB8891-8D64-EC11-85F1-005056816DA7"
+    },
+    {
+        "departmentPath": "跨域學程_外國語文學系跨域學程(B)外系學生",
+        "departmentId": "70FD4A2A-D09D-41A9-BE62-2F4CB6A256B1"
+    },
+    {
+        "departmentPath": "跨域學程_生物科技學系跨域學程(B)外系學生(生物科技)",
+        "departmentId": "7605180E-1A51-431A-BD0A-E02140B884CF"
+    },
+    {
+        "departmentPath": "跨域學程_資訊工程學系-生物資訊工程跨域學程",
+        "departmentId": "8393C437-AA75-4FCD-8AF2-10E78A46DA90"
+    },
+    {
+        "departmentPath": "跨域學程_資訊工程學系-電機工程跨域學程",
+        "departmentId": "8441CD36-F93E-495E-93C9-B7F30AD7D371"
+    },
+    {
+        "departmentPath": "跨域學程_管理學院創業與創新管理跨域學程",
+        "departmentId": "84BDFAC5-12EB-41FB-B46D-8C78D1EB208A"
+    },
+    {
+        "departmentPath": "跨域學程_資訊工程學系金融科技跨域學程",
+        "departmentId": "88D93124-9B31-4B7D-B58A-EB25F11F9644"
+    },
+    {
+        "departmentPath": "跨域學程_科技法律學院跨域學程",
+        "departmentId": "8966679B-FBB8-4163-8106-617E2E64F141"
+    },
+    {
+        "departmentPath": "跨域學程_資訊工程學系-電子工程跨域學程",
+        "departmentId": "8D2EE7E5-319E-4563-84C8-3C2281A3AF91"
+    },
+    {
+        "departmentPath": "跨域學程_人文社會學院藝術與音樂跨域學程",
+        "departmentId": "8FC55056-E913-4D0C-919E-EAB1EC4FFC69"
+    },
+    {
+        "departmentPath": "跨域學程_人工智慧跨域學程-生醫組",
+        "departmentId": "9CA63B88-F01A-4534-BEF7-FFFE1DB5BFB9"
+    },
+    {
+        "departmentPath": "跨域學程_資訊工程學系跨域學程(B)外系學生",
+        "departmentId": "A3D2E3D3-AD36-4D29-9DA8-9A80E351AE1C"
+    },
+    {
+        "departmentPath": "跨域學程_資訊工程學系智慧健康照護跨域學程",
+        "departmentId": "B004967A-8D64-EC11-85F1-005056816DA7"
+    },
+    {
+        "departmentPath": "跨域學程_工業工程與管理學系跨域學程(B)外系學生",
+        "departmentId": "BA8AD4BC-0177-4900-B3C8-6E560463D424"
+    },
+    {
+        "departmentPath": "跨域學程_生物科技學系跨域學程(B)外系學生(分子醫學)",
+        "departmentId": "BCB57E23-970C-4F15-9B14-42F8BE48EABE"
+    },
+    {
+        "departmentPath": "跨域學程_資訊管理與財務金融學系跨域學程(B)外系學生",
+        "departmentId": "BE57B831-05AD-4C98-B18F-3F7A3811D530"
+    },
+    {
+        "departmentPath": "跨域學程_科技管理研究所跨域學程(B)外系學生",
+        "departmentId": "C7AEA193-438E-4EC0-B89F-C33688A98A86"
+    },
+    {
+        "departmentPath": "跨域學程_材料科學與工程學系跨域學程(B)外系學生",
+        "departmentId": "CA1B291F-7925-43D3-92B7-73155E0E9295"
+    },
+    {
+        "departmentPath": "跨域學程_資訊管理與財務金融學系金融科技跨域學程",
+        "departmentId": "DA809AAA-D3D9-4D36-8966-328952F0ADCB"
+    },
+    {
+        "departmentPath": "跨域學程_教育研究所學習科學跨域學程",
+        "departmentId": "E43BCD23-13DD-4AB5-A6A7-CD154D25A1F7"
+    },
+    {
+        "departmentPath": "跨域學程_人文社會學系跨域學程(B)外系學生",
+        "departmentId": "E6926841-0F82-4663-9DC5-535D7E9E4E36"
+    },
+    {
+        "departmentPath": "教育學程_教育學程_教育學程",
+        "departmentId": "62B3A375-6D81-4CD0-AAD3-40FDB9BFCB90"
+    }
+]
