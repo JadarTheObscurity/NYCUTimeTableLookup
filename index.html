@@ -22,15 +22,9 @@
             courses.push(...data);
         });
 
-        function escapeRegExp(string) {
-            return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        }
-
-
         function findMatch(keyword, courses) {
             keyword = keyword.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&')
             const keywordArray = keyword.split(' ').filter(keyword => {return keyword.trim() !== ''});
-            console.log(`keywords: ${keywordArray}`)
             const regex = new RegExp(`(${keywordArray.join('|')})`, 'gi');
             const regexArray = keywordArray.map(keyword => new RegExp(`(${keyword})`, 'gi'));
             return courses.filter(course => {
@@ -48,7 +42,6 @@
                 return string;
             }
             return string.replace(regex, `<span class="hl">${"$&"}</span>`)
-            // return string.replace(regex, `<span class="hl">${string.match(regex)[0]}</span>`)
         }
 
 
@@ -65,12 +58,8 @@
                 courseIds.add(course.cos_id);
                 return true;
             })
-            console.log(matches);
 
-
-            // const regex = RegExp(`${this.value}`, "gi");
             const keywordArray = this.value.split(' ').filter(keyword => {return keyword.trim() !== ''});
-            console.log(`keywords: ${keywordArray}`)
             const regex = new RegExp(`(${keywordArray.join('|')})`, 'gi');
             const htmlAll = matches.map(course => {
                 const courseSem = course.sem;
