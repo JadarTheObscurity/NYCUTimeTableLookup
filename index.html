@@ -47,7 +47,8 @@
             if (string.match(regex) === null) {
                 return string;
             }
-            return string.replace(regex, `<span class="hl">${string.match(regex)[0]}</span>`)
+            return string.replace(regex, `<span class="hl">${"$&"}</span>`)
+            // return string.replace(regex, `<span class="hl">${string.match(regex)[0]}</span>`)
         }
 
 
