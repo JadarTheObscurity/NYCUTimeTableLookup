@@ -64,7 +64,7 @@
             const htmlAll = matches.map(course => {
                 const courseSem = course.sem;
                 const courseAcy = course.acy; 
-                const courseURL = `https://timetable.nycu.edu.tw/?r=main/crsoutline&Acy=${courseAcy}&Sem=${courseSem}&CrsNo=${course.courseId}&lang=zh-tw`;
+                const courseURL = `https://timetable.nycu.edu.tw/?r=main/crsoutline&Acy=${courseAcy}&Sem=${courseSem}&CrsNo=${course.cos_id}&lang=zh-tw`;
                 const courseName = highlightResult(this.value, course.cos_cname);
                 const coursePath = course.coursePath
                 const courseTeacher = highlightResult(this.value, course.teacher);
