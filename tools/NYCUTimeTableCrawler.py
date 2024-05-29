@@ -20,6 +20,7 @@ class NYCUTimeTableCrawler:
             "fcollege": "*",
             }
 
+
     def saveDepartmentIdAndPath(self, savePath):
         self.allParams = []
         self.getType()

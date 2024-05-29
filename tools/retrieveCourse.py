@@ -5,7 +5,7 @@ import json
 
 timeTableUrl = "https://timetable.nycu.edu.tw/"
 
-nycuTimeTableCrawler = NYCUTimeTableCrawler(112, 1, 112, 1)
+nycuTimeTableCrawler = NYCUTimeTableCrawler(113, 1, 113, 1)
 # nycuTimeTableCrawler.saveDepartmentIdAndPath("departmentPath.json")
 # courseParams = None
 # with open("departmentPath.json", "r") as f:
@@ -56,7 +56,7 @@ courseCount = 0
 # logging.basicConfig(filename='example.log', encoding='utf-8', level=logging.DEBUG)
 logging.basicConfig(handlers=[logging.FileHandler('example.log', 'w', 'utf-8')], level=logging.DEBUG)
 
-with open("departmentPath.json", "r") as f:
+with open("departmentPath.json", "r", encoding="utf8") as f:
     courseParams = json.load(f)
 result = []
 for i in tqdm(range(0, len(courseParams))):
@@ -75,5 +75,6 @@ for i in tqdm(range(0, len(courseParams))):
 
 
 print(f"Total course count: {courseCount}")
-with open("result.json", "w") as f:
+file_name = f"{nycuTimeTableCrawler.acysem}_{nycuTimeTableCrawler.acysemend}.json"
+with open(file_name, "w", encoding="utf8") as f:
     json.dump(result, f, ensure_ascii=False, indent=4)

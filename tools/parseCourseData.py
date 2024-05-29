@@ -77,13 +77,13 @@ courseWithPath = {}
 loopCounter = 0
 for file in os.listdir("../tmp"):
     print(file)
-    with open("../tmp/" + file, "r") as f:
+    with open("../tmp/" + file, "r", encoding="utf8") as f:
         courses = json.load(f)
         coursePath = file.split(".")[0]
         saveCourses(courses, coursePath, courseWithPath)
     loopCounter += 1
 
-with open("result.json", "w") as f:
+with open("result.json", "w", encoding="utf8") as f:
     #Turn dictionary to list
     courseWithPathList = list(courseWithPath.values())
     json.dump(courseWithPathList, f, indent=4, ensure_ascii=False, sort_keys=True)
