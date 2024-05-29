@@ -1,3 +1,4 @@
 tmp/*
 my-app/*
 tools/*
+.env
