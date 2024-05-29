@@ -18,7 +18,7 @@
     </div>
     <script>
         let courses = []
-        fetch('./result.json').then(blob => blob.json()).then(data => {
+        fetch('https://raw.githubusercontent.com/JadarTheObscurity/NYCUTimeTableLookup/main/1131_1131.json').then(blob => blob.json()).then(data => {
             courses.push(...data);
         });
 
