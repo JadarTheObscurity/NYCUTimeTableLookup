@@ -11,6 +11,13 @@
 </head>
 
 <body>
+    <div class="toggle-container">
+        <label class="switch">
+            <input type="checkbox" id="fullOutlineSearch" name="fullOutlineSearch">
+            <span class="slider round"></span>
+        </label>
+        <label for="fullOutlineSearch">Full outline search</label>
+    </div>
     <div class="search-form"> 
         <input type="text" class="search" placeholder="課程名稱或授課老師">
         <ul class="suggestions">
@@ -18,7 +25,7 @@
     </div>
     <script>
         let courses = []
-        fetch('https://raw.githubusercontent.com/JadarTheObscurity/NYCUTimeTableLookup/main/1131_1131.json').then(blob => blob.json()).then(data => {
+        fetch('https://raw.githubusercontent.com/JadarTheObscurity/NYCUTimeTableLookup/main/1131_description.json').then(blob => blob.json()).then(data => {
             courses.push(...data);
         });
 
@@ -31,7 +38,10 @@
                 const courseType = course.costype.reduce((acc, cur) => {
                     return acc + cur + " "
                 }, "");
-                return regexArray.every(regex => course.cos_cname.match(regex) || course.teacher.match(regex) || courseType.match(regex));
+                const fullOutlineSearch = document.getElementById('fullOutlineSearch').checked;
+                return regexArray.every(regex => course.cos_cname.match(regex) || course.teacher.match(regex) || (fullOutlineSearch && course.crs_outline.match(regex)) || courseType.match(regex));
+   
+                // return regexArray.every(regex => course.cos_cname.match(regex) || course.teacher.match(regex) || course.crs_outline.match(regex)|| courseType.match(regex));
             })
         }
 
@@ -62,17 +72,20 @@
             const keywordArray = this.value.split(' ').filter(keyword => {return keyword.trim() !== ''});
             const regex = new RegExp(`(${keywordArray.join('|')})`, 'gi');
             const htmlAll = matches.map(course => {
+                const fullOutlineSearch = document.getElementById('fullOutlineSearch').checked;
                 const courseSem = course.sem;
                 const courseAcy = course.acy; 
                 const courseURL = `https://timetable.nycu.edu.tw/?r=main/crsoutline&Acy=${courseAcy}&Sem=${courseSem}&CrsNo=${course.cos_id}&lang=zh-tw`;
-                const courseName = highlightResult(this.value, course.cos_cname);
                 const coursePath = course.coursePath
+                const courseName = highlightResult(this.value, course.cos_cname);
                 const courseTeacher = highlightResult(this.value, course.teacher);
+                const courseOutline = highlightResult(this.value, course.crs_outline);
                 const courseTime = course.cos_time
                 const courseTypeTmp = course.costype.reduce((acc, cur) => {
                     return acc + cur + " "
                 }, "")
                 const courseType = highlightResult(this.value, courseTypeTmp) 
+            
                 return `
                     <li>
                         <a href=${courseURL}  target="_blank" rel="noopener noreferrer" class="links"> 課程名稱：${courseName} </a>
@@ -80,8 +93,19 @@
                         <span class="courseTeacher"> 授課老師：${courseTeacher}</span>
                         <span class="courseTime"> 課程時間：${courseTime}</span>
                         <span class="courseType"> ${courseType}</span>
+                        ${fullOutlineSearch ? `<span class="courseOutline"> ${courseOutline}</span>` : ''}
                     </li>
                     `
+                // return `
+                //     <li>
+                //         <a href=${courseURL}  target="_blank" rel="noopener noreferrer" class="links"> 課程名稱：${courseName} </a>
+                //         <span class="coursePath"> 課程路徑：${coursePath}</span>
+                //         <span class="courseTeacher"> 授課老師：${courseTeacher}</span>
+                //         <span class="courseTime"> 課程時間：${courseTime}</span>
+                //         <span class="courseType"> ${courseType}</span>
+                //         <span class="courseOutline"> ${courseOutline}</span>
+                //     </li>
+                //     `
             });
 
 
