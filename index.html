@@ -24,12 +24,9 @@
     </div>
     <script>
         let courses = []
-        fetch('./1131.json').then(blob => blob.json()).then(data => {
+        fetch('https://raw.githubusercontent.com/JadarTheObscurity/NYCUTimeTableLookup/main/1131.json').then(blob => blob.json()).then(data => {
             courses.push(...data);
         });
-        // fetch('https://raw.githubusercontent.com/JadarTheObscurity/NYCUTimeTableLookup/main/1131_description.json').then(blob => blob.json()).then(data => {
-        //     courses.push(...data);
-        // });
 
         function findMatch(keyword, courses) {
             keyword = keyword.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&')
@@ -78,7 +75,7 @@
                 const courseSem = course.sem;
                 const courseAcy = course.acy; 
                 const courseURL = `https://timetable.nycu.edu.tw/?r=main/crsoutline&Acy=${courseAcy}&Sem=${courseSem}&CrsNo=${course.cos_id}&lang=zh-tw`;
-                const coursePath = course.coursePath
+                const coursePath = course.coursePath[0];
                 const courseName = highlightResult(this.value, course.cos_cname);
                 const courseTeacher = highlightResult(this.value, course.teacher);
                 const courseOutline = highlightResult(this.value, course.crs_outline);

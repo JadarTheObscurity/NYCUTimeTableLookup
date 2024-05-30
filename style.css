@@ -140,3 +140,7 @@ input:checked + .slider:before {
   height: 1vh; /* Adjust as needed */
   padding-top: 20px; /* Adjust as needed */
 }
+.courseOutline {
+  font-size: 0.8em; /* Adjust as needed */
+  color: #101010;
+}
