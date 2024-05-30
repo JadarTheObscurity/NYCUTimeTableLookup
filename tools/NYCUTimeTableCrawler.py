@@ -1,5 +1,6 @@
 import requests
 import json
+import aiohttp
 
 class NYCUTimeTableCrawler:
 
@@ -35,7 +36,7 @@ class NYCUTimeTableCrawler:
                                 'Chrome/23.0.1271.64 Safari/537.11'
         r = requests.post(self.timeTableUrl, headers=headers, params=param, data=data)
         return r
-
+    
     def getCourseList(self, departmentId):
         formData = {}
         formData["m_acy"] = self.acy

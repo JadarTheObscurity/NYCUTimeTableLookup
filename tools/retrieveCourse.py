@@ -1,4 +1,5 @@
 from NYCUTimeTableCrawler import NYCUTimeTableCrawler
+import threading
 import logging
 from tqdm import tqdm
 import json
@@ -50,12 +51,27 @@ logging.basicConfig(handlers=[logging.FileHandler('example.log', 'w', 'utf-8')],
 
 with open("departmentPath.json", "r", encoding="utf8") as f:
     courseParams = json.load(f)
+
 result = []
-for i in tqdm(range(0, len(courseParams))):
+courseDetails = {k:None for k in range(0, len(courseParams))}
+def getCourseDetail(courseParams, i):
     coursePath = courseParams[i]["departmentPath"]
     departmentId = courseParams[i]["departmentId"] 
     print(f"Find course {i} under {coursePath}, currently have {courseCount} courses")
     depCourseDetail = nycuTimeTableCrawler.getCourseList(departmentId)
+    courseDetails[i] = depCourseDetail
+
+threads = []
+for i in tqdm(range(0, len(courseParams))):
+    thread = threading.Thread(target=getCourseDetail, args=(courseParams, i))
+    thread.start()
+    threads.append(thread)
+# Wait for all threads to finish
+for thread in tqdm(threads):
+    thread.join()
+
+for idx, depCourseDetail in courseDetails.items():
+    coursePath = courseParams[idx]["departmentPath"]
     if len(depCourseDetail) == 0:
         logging.info(f"No course found in {coursePath}")
         continue
@@ -64,7 +80,6 @@ for i in tqdm(range(0, len(courseParams))):
         courseInfoList = extraceCourseInfo(courseDetail, coursePath)
         result += courseInfoList
         courseCount = len(result)
-
 
 print(f"Total course count: {courseCount}")
 file_name = f"{nycuTimeTableCrawler.acysem}_{nycuTimeTableCrawler.acysemend}.json"
