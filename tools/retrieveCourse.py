@@ -6,14 +6,6 @@ import json
 timeTableUrl = "https://timetable.nycu.edu.tw/"
 
 nycuTimeTableCrawler = NYCUTimeTableCrawler(113, 1, 113, 1)
-# nycuTimeTableCrawler.saveDepartmentIdAndPath("departmentPath.json")
-# courseParams = None
-# with open("departmentPath.json", "r") as f:
-#     courseParams = json.load(f)
-
-# r = nycuTimeTableCrawler.getCourseList(courseParams[233]["departmentId"])
-# with open("tmp.json", "w") as f:
-#     json.dump(r, f, ensure_ascii=False, indent=4)
 
 def extraceCourseInfo(courseDetail, coursePath:str):
     courseInfoList = []
