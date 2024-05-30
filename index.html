@@ -3,9 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>尋找陽明交大課程在哪裡 👀</title>
+    <title>國立陽明交通大學 課程時間表</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="https://fav.farm/🔥" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
@@ -25,9 +24,12 @@
     </div>
     <script>
         let courses = []
-        fetch('https://raw.githubusercontent.com/JadarTheObscurity/NYCUTimeTableLookup/main/1131_description.json').then(blob => blob.json()).then(data => {
+        fetch('./1131.json').then(blob => blob.json()).then(data => {
             courses.push(...data);
         });
+        // fetch('https://raw.githubusercontent.com/JadarTheObscurity/NYCUTimeTableLookup/main/1131_description.json').then(blob => blob.json()).then(data => {
+        //     courses.push(...data);
+        // });
 
         function findMatch(keyword, courses) {
             keyword = keyword.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&')
@@ -93,19 +95,9 @@
                         <span class="courseTeacher"> 授課老師：${courseTeacher}</span>
                         <span class="courseTime"> 課程時間：${courseTime}</span>
                         <span class="courseType"> ${courseType}</span>
-                        ${fullOutlineSearch ? `<span class="courseOutline"> ${courseOutline}</span>` : ''}
+                        <span class="courseOutline"> ${courseOutline}</span>
                     </li>
                     `
-                // return `
-                //     <li>
-                //         <a href=${courseURL}  target="_blank" rel="noopener noreferrer" class="links"> 課程名稱：${courseName} </a>
-                //         <span class="coursePath"> 課程路徑：${coursePath}</span>
-                //         <span class="courseTeacher"> 授課老師：${courseTeacher}</span>
-                //         <span class="courseTime"> 課程時間：${courseTime}</span>
-                //         <span class="courseType"> ${courseType}</span>
-                //         <span class="courseOutline"> ${courseOutline}</span>
-                //     </li>
-                //     `
             });
 
 
