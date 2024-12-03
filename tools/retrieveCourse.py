@@ -6,7 +6,7 @@ import json
 
 timeTableUrl = "https://timetable.nycu.edu.tw/"
 
-nycuTimeTableCrawler = NYCUTimeTableCrawler(113, 1)
+nycuTimeTableCrawler = NYCUTimeTableCrawler(113, 2)
 
 def extraceCourseInfo(courseDetail, coursePath:str):
     courseInfoList = []
@@ -56,16 +56,18 @@ def getCourseDetail(courseParams, i):
     depCourseDetail = nycuTimeTableCrawler.getCourseList(departmentId)
     courseDetails[i] = depCourseDetail
 
-threads = []
-print(f"Create http request for course detail.")
 for i in tqdm(range(0, len(courseParams))):
-    thread = threading.Thread(target=getCourseDetail, args=(courseParams, i))
-    thread.start()
-    threads.append(thread)
-# Wait for all threads to finish
-print(f"Waiting for http response for course detail.")
-for thread in tqdm(threads):
-    thread.join()
+    getCourseDetail(courseParams, i)
+# threads = []
+# print(f"Create http request for course detail.")
+# for i in tqdm(range(0, len(courseParams))):
+#     thread = threading.Thread(target=getCourseDetail, args=(courseParams, i))
+#     thread.start()
+#     threads.append(thread)
+# # Wait for all threads to finish
+# print(f"Waiting for http response for course detail.")
+# for thread in tqdm(threads):
+#     thread.join()
 
 result = []
 for idx, depCourseDetail in courseDetails.items():
