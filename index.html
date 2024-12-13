@@ -10,12 +10,25 @@
 </head>
 
 <body>
-    <div class="toggle-container">
-        <label class="switch">
-            <input type="checkbox" id="fullOutlineSearch" name="fullOutlineSearch">
-            <span class="slider round"></span>
-        </label>
-        <label for="fullOutlineSearch">Full outline search</label>
+    <div class="flex-container">
+        <div class="toggle-container">
+            <label class="switch">
+                <input type="checkbox" id="fullOutlineSearch" name="fullOutlineSearch">
+                <span class="slider round"></span>
+            </label>
+            <label for="fullOutlineSearch">Full outline search</label>
+        </div>
+        <div class="year-selection">
+            <label for="yearSelect">Select Year:</label>
+            <select id="yearSelect">
+                <option value="1132">1132</option>
+                <option value="1131">1131</option>
+                <!-- Add more options as needed -->
+            </select>
+        </div>
+        <div class="course-count">
+            Total unique courses: <span id="courseCount">0</span>
+        </div>
     </div>
     <div class="search-form"> 
         <input type="text" class="search" placeholder="課程名稱或授課老師">
@@ -23,13 +36,38 @@
         </ul>
     </div>
     <script>
-        let courses = []
-        fetch('https://raw.githubusercontent.com/JadarTheObscurity/NYCUTimeTableLookup/main/1132.json').then(blob => blob.json()).then(data => {
-            courses.push(...data);
+        let courses = [];
+        const yearFiles = {
+            "1132": "https://raw.githubusercontent.com/JadarTheObscurity/NYCUTimeTableLookup/main/1132.json",
+            "1131": "https://raw.githubusercontent.com/JadarTheObscurity/NYCUTimeTableLookup/main/1131.json"
+            // Add more year-file mappings as needed
+        };
+
+        function updateCourseCount() {
+            const uniqueCourses = new Set(courses.map(course => course.cos_id));
+            document.getElementById('courseCount').textContent = uniqueCourses.size;
+        }
+
+        function loadCourses(year) {
+            fetch(yearFiles[year]).then(blob => blob.json()).then(data => {
+                courses = data;
+                updateCourseCount();
+            });
+        }
+
+        document.getElementById('yearSelect').addEventListener('change', function() {
+            loadCourses(this.value);
         });
 
+        // Load the default year's courses
+        loadCourses(document.getElementById('yearSelect').value);
+
         function findMatch(keyword, courses) {
+            if (keyword === '') {
+                return [];
+            }
             keyword = keyword.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&')
+            // console.log(keyword)
             const keywordArray = keyword.split(' ').filter(keyword => {return keyword.trim() !== ''});
             const regex = new RegExp(`(${keywordArray.join('|')})`, 'gi');
             const regexArray = keywordArray.map(keyword => new RegExp(`(${keyword})`, 'gi'));
@@ -46,8 +84,10 @@
 
         function highlightResult(keyword, string) {
             const keywordArray = keyword.split(' ').filter(keyword => {return keyword.trim() !== ''});
+            console.log(keyword, string)
             const regex = new RegExp(`(${keywordArray.join('|')})`, 'gi');
-            if (string.match(regex) === null) {
+            // check if string is undefined
+            if (string === undefined || string.match(regex) === null) {
                 return string;
             }
             return string.replace(regex, `<span class="hl">${"$&"}</span>`)

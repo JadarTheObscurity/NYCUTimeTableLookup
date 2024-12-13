@@ -136,11 +136,30 @@ input:checked + .slider:before {
 .toggle-container {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   height: 1vh; /* Adjust as needed */
   padding-top: 20px; /* Adjust as needed */
+  margin-right: 20px; /* Add space between toggle and year selection */
 }
 .courseOutline {
   font-size: 0.8em; /* Adjust as needed */
   color: #101010;
+}
+
+.year-selection {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center vertically */
+    margin: 20px 0;
+}
+
+/* Container for both toggle and year selection */
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.year-selection, .course-count {
+    margin: 10px;
 }
