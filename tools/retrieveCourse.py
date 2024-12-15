@@ -6,7 +6,7 @@ import json
 
 timeTableUrl = "https://timetable.nycu.edu.tw/"
 
-nycuTimeTableCrawler = NYCUTimeTableCrawler(113, 2)
+nycuTimeTableCrawler = NYCUTimeTableCrawler(111, 2)
 
 def extraceCourseInfo(courseDetail, coursePath:str):
     courseInfoList = []
@@ -45,7 +45,7 @@ def extraceCourseInfo(courseDetail, coursePath:str):
 
 courseCount = 0
 # logging.basicConfig(filename='example.log', encoding='utf-8', level=logging.DEBUG)
-logging.basicConfig(handlers=[logging.FileHandler('example.log', 'w', 'utf-8')], level=logging.DEBUG)
+# logging.basicConfig(handlers=[logging.FileHandler('example.log', 'w', 'utf-8')], level=logging.DEBUG)
 
 print(f"Get department Id and Path")
 courseParams = nycuTimeTableCrawler.getDepartmentIdAndPath()
