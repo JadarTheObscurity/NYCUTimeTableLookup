@@ -118,4 +118,4 @@ def crawl_all_course(year, semester):
     with open(file_name, "w", encoding="utf8") as f:
         json.dump(result, f, ensure_ascii=False, indent=4)
 
-crawl_all_course(110, 2)
+crawl_all_course(114, 1)
