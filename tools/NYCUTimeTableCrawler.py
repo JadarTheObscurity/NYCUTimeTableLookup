@@ -28,7 +28,7 @@ class NYCUTimeTableCrawler:
         headers['User-Agent'] = 'Mozilla/5.0 (X11; Linux x86_64) ' \
                                 'AppleWebKit/537.11 (KHTML, like Gecko) ' \
                                 'Chrome/23.0.1271.64 Safari/537.11'
-        r = requests.post(self.timeTableUrl, headers=headers, params=param, data=data)
+        r = requests.post(self.timeTableUrl, headers=headers, params=param, data=data, verify=True, timeout=20)
         return r
     
     def getCourseList(self, departmentId):
@@ -79,6 +79,7 @@ class NYCUTimeTableCrawler:
             thread = threading.Thread(target=getDeptId, args=(i,))
             thread.start()
             threads.append(thread)
+            
         # Wait for all threads to finish
         for thread in tqdm(threads):
             thread.join()
