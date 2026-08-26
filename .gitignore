@@ -1,4 +1,4 @@
 tmp/*
 my-app/*
-tools/*
+*/__pycache__
 .env
