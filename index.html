@@ -1,175 +1,522 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <title>國立陽明交通大學 課程時間表</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NYCU 課程探索 · Course Explorer</title>
+<style>
+  :root{
+    --bg:#f6f7f9; --panel:#fff; --ink:#1a1d21; --muted:#6b7280; --line:#e5e7eb;
+    --accent:#2563eb; --accent-soft:#eff4ff;
+    --new:#0e9f6e; --new-soft:#e3f5ec; --teach:#7c3aed; --teach-soft:#f1eafe;
+    --hot:#e0453a; --hot-soft:#fdeceb; --gem:#0891b2; --gem-soft:#e3f6fa;
+    --doc:#b45309; --doc-soft:#fdf1e0; --radius:12px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:-apple-system,"Segoe UI",system-ui,"Microsoft JhengHei",sans-serif; background:var(--bg); color:var(--ink); font-size:14px; line-height:1.45}
+  a{color:var(--accent); text-decoration:none} a:hover{text-decoration:underline}
+  button{font:inherit; cursor:pointer}
 
+  .topbar{display:flex; align-items:center; gap:16px; padding:10px 18px; background:var(--panel); border-bottom:1px solid var(--line); position:sticky; top:0; z-index:20}
+  .brand{font-weight:700; font-size:16px}
+  .topbar select{padding:5px 8px; border:1px solid var(--line); border-radius:8px}
+  .count{color:var(--muted); font-size:13px}
+  .topbar .spacer{flex:1}
+  #helpBtn{background:transparent; border:1px solid var(--line); border-radius:20px; padding:3px 12px; font-size:12px; color:var(--muted)}
+  .helpbox{position:absolute; right:14px; top:52px; background:#fff; border:1px solid var(--line); border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,.15); padding:16px; width:300px; z-index:30}
+  .helpbox h4{margin:0 0 8px} .helpbox p{margin:6px 0; font-size:12.5px; color:#374151}
+  #status{padding:48px; text-align:center; color:var(--muted)}
+
+  /* layout */
+  .wrap{display:grid; grid-template-columns:330px 1fr; gap:16px; padding:16px; max-width:1520px; margin:0 auto}
+  aside{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); align-self:start; position:sticky; top:66px}
+  .side{max-height:calc(100vh - 84px); overflow-y:auto; padding:12px}
+  .side-head{font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); display:flex; justify-content:space-between; align-items:center; margin-bottom:6px}
+  .side-head button{border:1px solid var(--line); background:#fff; border-radius:6px; font-size:11px; padding:1px 6px; text-transform:none; letter-spacing:0}
+  #tree{max-height:42vh; overflow-y:auto; border:1px solid var(--line); border-radius:8px; padding:4px 0}
+  .tnode{display:flex; align-items:center; gap:4px; height:26px; padding:0 10px 0 0; cursor:default; font-size:12.5px; white-space:nowrap; overflow:hidden; flex:0 0 auto}
+  .tnode:hover{background:var(--accent-soft)}
+  .tnode.sel{background:var(--accent-soft)}
+  .tcaret{width:13px; display:inline-block; text-align:center; color:var(--muted); cursor:pointer; font-size:10px}
+  .tcaret.empty{cursor:default}
+  .tnode{line-height:1.3}
+  .tlabel{cursor:pointer; flex:1 1 auto; min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+  .tnode.sel>.tlabel{color:var(--accent); font-weight:600}
+  .tcnt{color:var(--muted); font-size:11px; flex:0 0 auto}
+  .tstar{cursor:pointer; color:#cbd5e1; width:14px; text-align:center; flex:0 0 auto}
+  .tstar.on{color:#f59e0b}
+  .tstarhead{display:flex; justify-content:space-between; align-items:center; padding:8px 10px 3px; font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.05em}
+  .ftgl{border:1px solid var(--line); background:#fff; border-radius:20px; font-size:12px; padding:4px 14px; text-transform:none; letter-spacing:0; color:var(--muted); font-weight:600}
+  .ftgl.on{background:var(--accent); color:#fff; border-color:var(--accent)}
+  .tdiv{border-bottom:1px solid var(--line); margin:5px 0}
+
+  .side h4{margin:16px 0 6px; font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted)}
+  .side select{width:100%; padding:6px; border:1px solid var(--line); border-radius:8px; background:#fff}
+  .hint{font-size:11px; color:var(--muted); margin-top:4px}
+  .mini{border:1px solid var(--line); background:#fff; border-radius:6px; padding:1px 6px; font-size:11px}
+  .check{display:block; margin:5px 0; font-size:13px}
+  .checklist{max-height:150px; overflow-y:auto; border:1px solid var(--line); border-radius:8px; padding:4px 6px}
+  .checklist label{display:flex; align-items:center; gap:6px; font-size:12px; padding:2px 0; cursor:pointer}
+  .checklist .cnt{color:var(--muted); margin-left:auto; font-size:11px}
+  /* calendar time grid: days across the top, periods down the side */
+  .cal{border-collapse:collapse; width:100%; table-layout:fixed; font-size:10px}
+  .cal th{color:var(--muted); font-weight:500; padding:1px}
+  .cal td{border:1px solid var(--line); height:16px; cursor:pointer; background:#fff}
+  .cal td:hover{background:var(--accent-soft)}
+  .cal td.on{background:var(--accent)}
+  .rangepair label{display:block; font-size:12px; color:var(--muted); margin:3px 0}
+  .rangepair input[type=range]{width:100%}
+
+  main{min-width:0}
+  .searchrow{display:flex; gap:8px; margin-bottom:10px}
+  .searchrow input.q{flex:1; padding:12px 14px; font-size:16px; border:2px solid var(--line); border-radius:12px}
+  .searchrow input.q:focus{outline:none; border-color:var(--accent)}
+  .sortsel{padding:0 10px; border:1px solid var(--line); border-radius:12px; background:#fff}
+  .viewtoggle{display:flex; border:1px solid var(--line); border-radius:12px; overflow:hidden}
+  .viewtoggle button{border:none; background:#fff; padding:0 13px; font-size:15px}
+  .viewtoggle button.on{background:var(--accent); color:#fff}
+  .meta{display:flex; justify-content:space-between; align-items:center; color:var(--muted); font-size:13px; margin-bottom:8px; flex-wrap:wrap; gap:6px}
+  .chips{display:flex; gap:6px; flex-wrap:wrap}
+  .chip{background:var(--accent); color:#fff; border-radius:20px; padding:2px 8px 2px 10px; font-size:12px; display:inline-flex; align-items:center; gap:6px}
+  .chip button{background:rgba(255,255,255,.25); border:none; color:#fff; border-radius:50%; width:16px; height:16px; line-height:14px; padding:0}
+  .empty{color:var(--muted); padding:24px; text-align:center}
+
+  .badges{display:inline-flex; gap:4px; flex-wrap:wrap; vertical-align:middle}
+  .badge{font-size:11px; padding:1px 7px; border-radius:20px; font-weight:600; white-space:nowrap}
+  .b-new{background:var(--new-soft); color:var(--new)} .b-teach{background:var(--teach-soft); color:var(--teach)}
+  .b-doc{background:var(--doc-soft); color:var(--doc)} .b-gem{background:var(--gem-soft); color:var(--gem)}
+  .b-hot{background:var(--hot-soft); color:var(--hot)} .b-score{background:var(--accent-soft); color:var(--accent)}
+  .fillbar{height:6px; width:70px; border-radius:4px; background:var(--line); overflow:hidden; display:inline-block; vertical-align:middle}
+  .fillbar>i{display:block; height:100%}
+  .daytag{display:inline-block; font-size:11px; background:#eef1f5; color:#475569; border-radius:5px; padding:0 5px; margin-right:2px}
+  .pivot{cursor:pointer; border-bottom:1px dashed transparent}
+  .pivot:hover{color:var(--accent); border-bottom-color:var(--accent)}
+  .campustag{margin-left:6px; font-size:12px}
+  .listings{color:var(--muted); font-size:11px}
+
+  .row{background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin-bottom:8px}
+  .row .top{display:flex; justify-content:space-between; gap:10px}
+  .row .title{font-size:15px; font-weight:600}
+  .row .code{color:var(--muted); font-weight:400; font-size:12px; margin-left:6px}
+  .row .rowpath{margin:2px 0 1px; font-size:12px} .rowpath .pivot{color:#475569}
+  .row .sub{color:#374151; font-size:13px; margin-top:3px; display:flex; flex-wrap:wrap; gap:4px 14px; align-items:center}
+  .rowoutline{margin-top:6px; color:#6b7280; font-size:12px; line-height:1.5; background:#fafbfc; border-left:2px solid var(--line); padding:5px 8px; border-radius:0 6px 6px 0}
+  .rowoutline.boiler{color:#9ca3af}
+  .rowoutline .tmpl{font-size:10px; background:#eceff2; color:#6b7280; padding:0 5px; border-radius:8px}
+
+  .pin{column-width:250px; column-gap:12px}
+  .pcard{break-inside:avoid; -webkit-column-break-inside:avoid; background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin:0 0 12px; display:inline-block; width:100%}
+  .pctitle{font-size:15px; font-weight:600; line-height:1.3}
+  .pccode{color:var(--muted); font-size:11px; margin:2px 0 7px}
+  .pcmeta{font-size:12.5px; color:#374151; margin:4px 0}
+  .clink{cursor:pointer; color:var(--accent)} .clink:hover{text-decoration:underline}
+
+  .modal-bg{position:fixed; inset:0; background:rgba(15,23,42,.5); display:flex; align-items:center; justify-content:center; padding:20px; z-index:50}
+  .modal{background:#fff; border-radius:16px; max-width:640px; width:100%; max-height:85vh; overflow-y:auto; padding:24px}
+  .modal .x{float:right; border:none; background:#f1f2f4; border-radius:50%; width:30px; height:30px; font-size:16px}
+  .modal h2{margin:0 0 2px} .modal .den{color:var(--muted); margin:0 0 12px}
+  .dkv{display:grid; grid-template-columns:92px 1fr; gap:6px 12px; margin:14px 0; font-size:13px}
+  .dkv b{color:var(--muted); font-weight:500}
+  .dlabel{font-size:12px; color:var(--muted)}
+  .doutline{background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:14px; white-space:pre-wrap; font-size:13px; line-height:1.6; margin-top:6px}
+
+  @media(max-width:900px){ .wrap{grid-template-columns:1fr} aside{position:static; max-height:300px} }
+</style>
 </head>
-
 <body>
-    <div class="flex-container">
-        <div class="toggle-container">
-            <label class="switch">
-                <input type="checkbox" id="fullOutlineSearch" name="fullOutlineSearch">
-                <span class="slider round"></span>
-            </label>
-            <label for="fullOutlineSearch">Full outline search</label>
-        </div>
-        <div class="year-selection">
-            <label for="yearSelect">Select Year:</label>
-            <select id="yearSelect">
-                <option value="1151">1151</option>
-                <option value="1142">1142</option>
-                <option value="1141">1141</option>
-                <option value="1132">1132</option>
-                <option value="1131">1131</option>
-                <option value="1122">1122</option>
-                <option value="1121">1121</option>
-                <option value="1112">1112</option>
-                <option value="1111">1111</option>
-                <option value="1102">1102</option>
-                <option value="1101">1101</option>
-                <!-- Add more options as needed -->
-            </select>
-        </div>
-        <div class="course-count">
-            Total unique courses: <span id="courseCount">0</span>
-        </div>
+<header class="topbar">
+  <div class="brand">NYCU 課程探索</div>
+  <label>Semester
+    <select id="yearSel"></select>
+  </label>
+  <span class="count" id="count"></span>
+  <span class="spacer"></span>
+  <button id="helpBtn">signals</button>
+</header>
+<div class="helpbox" id="helpBox" hidden>
+  <h4>Interestingness signals</h4>
+  <p><span class="badge b-new">🆕 new</span> course code absent from a year ago</p>
+  <p><span class="badge b-teach">👤 new teacher</span> instructor not seen a year ago</p>
+  <p><span class="badge b-doc">📄 rich</span> long, non-boilerplate syllabus</p>
+  <p><span class="badge b-hot">🔥 84%</span> registered ÷ capacity</p>
+  <p><span class="badge b-gem">💎 gem</span> rich syllabus but under half full</p>
+  <p><span class="badge b-score">◆ 62</span> blended interest score</p>
+  <p style="color:#9ca3af">Novelty is computed against the same semester one year earlier.</p>
+</div>
+
+<div id="status">Loading course data…</div>
+<div id="app" style="display:none"></div>
+<div id="modalRoot"></div>
+
+<script>
+"use strict";
+const RAW='https://raw.githubusercontent.com/JadarTheObscurity/NYCUTimeTableLookup/main/';
+const YEARS=['1151','1142','1141','1132','1131','1122','1121','1112','1111','1102','1101'];
+const DAYMAP={M:'Mon',T:'Tue',W:'Wed',R:'Thu',F:'Fri',S:'Sat',U:'Sun'};
+const DAY_ORDER=['M','T','W','R','F','S','U'];
+const PERIODS=['1','2','3','4','n','5','6','7','8','a','b','c','d'];
+const LANGLABEL={'zh-tw':'中文','zh-TW':'中文','zh':'中文','en':'English','en-us':'English','en-US':'English'};
+
+let DATA=[], CAMPUS=[], LANGS=[], TYPES=[], PATHTREE=null, PATHINDEX={};
+
+const S={q:'',expanded:new Set(),slots:new Set(),type:'',langs:new Set(),campus:new Set(),
+  teacher:'',onlyNew:false,onlyNewTeacher:false,onlyOutline:false,fillMin:0,fillMax:100,sort:'interest',view:'list',year:'1151',favFilter:true};
+
+function cookieGet(k){const m=document.cookie.match('(?:^|; )'+k+'=([^;]*)');return m?decodeURIComponent(m[1]):'';}
+function cookieSet(k,v){document.cookie=k+'='+encodeURIComponent(v)+';path=/;max-age=31536000';}
+let FAV=(function(){try{return new Set(JSON.parse(cookieGet('favPaths')||'[]'));}catch(e){return new Set();}})();
+function toggleFav(p){FAV.has(p)?FAV.delete(p):FAV.add(p); cookieSet('favPaths',JSON.stringify([...FAV]));}
+
+/* ---------- data ---------- */
+async function loadYear(y){
+  try{const r=await fetch(y+'.json'); if(r.ok)return r.json();}catch(e){}
+  const r2=await fetch(RAW+y+'.json'); if(!r2.ok) throw new Error('load '+y+' failed'); return r2.json();
+}
+function priorOf(y){ const s=String(parseInt(y,10)-10); return YEARS.includes(s)?s:null; }
+function splitTeachers(t){ return t?t.split(/[、,，;；]|\s{2,}/).map(s=>s.trim()).filter(Boolean):[]; }
+function parseTime(time){
+  const days=new Set(), slots=new Set(), campus=new Set();
+  if(!time)return{days:[],slots,campus:[]};
+  let mm; const br=/\[([^\]]+)\]/g; while((mm=br.exec(time)))campus.add(mm[1]);
+  const left=String(time).split('-')[0];
+  const re=/([MTWRFSU])([0-9nNabcd]+)/g; let m;
+  while((m=re.exec(left))){const d=m[1]; days.add(d); for(const p of m[2])slots.add(d+':'+p.toLowerCase());}
+  return {days:DAY_ORDER.filter(d=>days.has(d)),slots,campus:[...campus]};
+}
+function enrich(cur,prior){
+  const priorCodes=new Set(prior.map(c=>c.cos_code));
+  const priorTeachers=new Set(prior.flatMap(c=>splitTeachers(c.teacher)));
+  const hasPrior=prior.length>0;
+  const oc={}; cur.forEach(c=>{const o=(c.crs_outline||'').trim(); if(o)oc[o]=(oc[o]||0)+1;});
+  return cur.map(c=>{
+    const teachers=splitTeachers(c.teacher), o=(c.crs_outline||'').trim();
+    const boiler=o&&oc[o]>=3, lim=parseInt(c.num_limit)||0, reg=parseInt(c.reg_num)||0;
+    const fill=lim>0?reg/lim:null;
+    const isNew=hasPrior&&!priorCodes.has(c.cos_code);
+    const newT=hasPrior?teachers.filter(t=>!priorTeachers.has(t)):[];
+    const hasNewT=newT.length>0&&!isNew;
+    const effort=!o?0:(boiler?0.15:Math.min(1,o.length/800));
+    const tm=parseTime(c.cos_time);
+    const paths=Array.isArray(c.coursePath)?c.coursePath.filter(Boolean):[];
+    const shortPath=paths.length?paths.slice().sort((a,b)=>a.length-b.length)[0]:'';
+    let s=0; if(isNew)s+=30; if(hasNewT)s+=12; s+=effort*25;
+    if(fill!=null)s+=Math.min(1,fill)*18; if(effort>0.4&&fill!=null&&fill<0.5)s+=10; if(lim>0&&lim<=15)s+=6;
+    return Object.assign({},c,{_teachers:teachers,_newT:newT,_isNew:isNew,_hasNewT:hasNewT,
+      _outLen:o.length,_outBoiler:boiler,_hasOutline:!!o&&!boiler,_effort:effort,
+      _lim:lim,_reg:reg,_fill:fill,_days:tm.days,_slots:tm.slots,_campus:tm.campus,
+      _paths:paths,_shortPath:shortPath,_gem:effort>0.4&&fill!=null&&fill<0.5,_interest:Math.round(s)});
+  });
+}
+function buildFacets(){
+  const camp={}, lang={}, typ={};
+  DATA.forEach(c=>{ c._campus.forEach(k=>camp[k]=(camp[k]||0)+1);
+    if(c.language)lang[c.language]=(lang[c.language]||0)+1;
+    if(c.cos_type)typ[c.cos_type]=(typ[c.cos_type]||0)+1; });
+  CAMPUS=Object.entries(camp).map(([name,count])=>({name,count})).sort((a,b)=>b.count-a.count);
+  LANGS=Object.entries(lang).map(([name,count])=>({name,count})).sort((a,b)=>b.count-a.count);
+  TYPES=Object.keys(typ);
+  buildTree();
+}
+function buildTree(){
+  const root={name:'root',prefix:'',children:{},count:0};
+  const distinct=new Set(); DATA.forEach(c=>c._paths.forEach(e=>distinct.add(e)));
+  distinct.forEach(e=>{ const segs=e.split('_'); let node=root,acc='';
+    segs.forEach((s,i)=>{ acc=i?acc+'_'+s:s; if(!node.children[s])node.children[s]={name:s,prefix:acc,children:{},count:0}; node=node.children[s]; }); });
+  const byPref={}; (function idx(n){byPref[n.prefix]=n; Object.values(n.children).forEach(idx);})(root);
+  DATA.forEach(c=>{ const pref=new Set();
+    c._paths.forEach(e=>{const segs=e.split('_'); let acc=''; segs.forEach((s,i)=>{acc=i?acc+'_'+s:s; pref.add(acc);});});
+    pref.forEach(p=>{ if(byPref[p])byPref[p].count++; }); });
+  PATHTREE=root; PATHINDEX=byPref;
+}
+
+/* ---------- helpers ---------- */
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));}
+function fillColor(f){return f>=0.9?'var(--hot)':f>=0.6?'#f59e0b':'var(--new)';}
+function daysHtml(c){return c._days.map(d=>`<span class="daytag">${DAYMAP[d]}</span>`).join('');}
+function officialUrl(c){return `https://timetable.nycu.edu.tw/?r=main/crsoutline&Acy=${c.acy}&Sem=${c.sem}&CrsNo=${c.cos_id}&lang=zh-tw`;}
+function badges(c){
+  let h='';
+  if(c._isNew)h+='<span class="badge b-new">🆕 new</span>';
+  if(c._hasNewT)h+='<span class="badge b-teach">👤 new teacher</span>';
+  if(c._hasOutline&&c._effort>0.35)h+='<span class="badge b-doc">📄 rich</span>';
+  if(c._gem)h+='<span class="badge b-gem">💎 gem</span>';
+  if(c._fill!=null)h+=`<span class="badge b-hot">🔥 ${Math.round(c._fill*100)}%</span>`;
+  h+=`<span class="badge b-score">◆ ${c._interest}</span>`;
+  return `<span class="badges">${h}</span>`;
+}
+function fillBar(c){
+  if(c._fill==null)return '<span style="color:var(--muted);font-size:12px">— no cap</span>';
+  const pct=Math.min(100,Math.round(c._fill*100));
+  return `<span class="fillbar"><i style="width:${pct}%;background:${fillColor(c._fill)}"></i></span> <span style="font-size:12px;color:var(--muted)">${c._reg}/${c._lim}</span>`;
+}
+function langLabel(x){return LANGLABEL[x]||x;}
+
+/* ---------- filter ---------- */
+function filtered(){
+  const q=S.q.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  const fillActive=S.fillMin>0||S.fillMax<100;
+  let r=DATA.filter(c=>{
+    if(S.favFilter && FAV.size){ let hit=false;
+      for(const e of c._paths){ for(const p of FAV){ if(e===p||e.startsWith(p+'_')){hit=true;break;} } if(hit)break; }
+      if(!hit)return false; }
+    if(S.type && (c.cos_type||'')!==S.type) return false;
+    if(S.langs.size && !S.langs.has(c.language||'')) return false;
+    if(S.campus.size){ let hit=false;
+      if(S.campus.has('__none__') && c._campus.length===0) hit=true;
+      if(!hit) c._campus.forEach(k=>{if(S.campus.has(k))hit=true;});
+      if(!hit)return false; }
+    if(S.teacher && !c._teachers.includes(S.teacher)) return false;
+    if(S.onlyNew && !c._isNew) return false;
+    if(S.onlyNewTeacher && !(c._newT.length>0)) return false;
+    if(S.onlyOutline && !c._hasOutline) return false;
+    if(fillActive){ if(c._fill==null)return false; const p=c._fill*100; if(p<S.fillMin||p>S.fillMax)return false; }
+    if(S.slots.size){ let hit=false; c._slots.forEach(s=>{if(S.slots.has(s))hit=true;}); if(!hit)return false; }
+    if(q.length){ const hay=((c.cos_cname||'')+' '+(c.cos_ename||'')+' '+(c.teacher||'')+' '+(c.cos_code||'')+' '+c._paths.join(' ')).toLowerCase();
+      if(!q.every(t=>hay.includes(t)))return false; }
+    return true;
+  });
+  const S2=S.sort, fv=x=>x==null?2:x;
+  r.sort((a,b)=> S2==='interest'?b._interest-a._interest :
+                 S2==='new'?(b._isNew-a._isNew)||b._interest-a._interest :
+                 S2==='fill'?(fv(b._fill)-fv(a._fill)) :
+                 S2==='empty'?(fv(a._fill)-fv(b._fill)) :
+                 S2==='specialized'?(a._paths.length-b._paths.length)||b._interest-a._interest :
+                 S2==='crosslisted'?(b._paths.length-a._paths.length)||b._interest-a._interest :
+                 (a.cos_cname||'').localeCompare(b.cos_cname||''));
+  return r;
+}
+
+/* ---------- render ---------- */
+function calGrid(){
+  let h='<table class="cal"><tr><th></th>'+DAY_ORDER.map(d=>`<th>${DAYMAP[d]}</th>`).join('')+'</tr>';
+  for(const p of PERIODS){ h+=`<tr><th>${p}</th>`+DAY_ORDER.map(d=>`<td data-slot="${d}:${p}" class="${S.slots.has(d+':'+p)?'on':''}"></td>`).join('')+'</tr>'; }
+  return h+'</table>';
+}
+function chipsHtml(){
+  const ch=[]; const add=(k,label,val)=>ch.push(`<span class="chip">${esc(label)}<button data-clear="${k}"${val!==undefined?` data-val="${esc(val)}"`:''}>×</button></span>`);
+  if(S.teacher)add('teacher','👤 '+S.teacher);
+  S.campus.forEach(k=>add('campus','📍 '+(k==='__none__'?'(not specified)':k),k));
+  S.langs.forEach(l=>add('lang','🗣 '+langLabel(l),l));
+  if(S.type)add('type',S.type);
+  if(S.onlyNew)add('onlyNew','🆕 new');
+  if(S.onlyNewTeacher)add('onlyNewTeacher','👤 new teacher');
+  if(S.onlyOutline)add('onlyOutline','📄 has outline');
+  return ch.join('');
+}
+function treeHtml(node,depth){
+  return Object.values(node.children).sort((a,b)=>b.count-a.count).map(n=>{
+    const kids=Object.keys(n.children).length>0, open=S.expanded.has(n.prefix), fav=FAV.has(n.prefix);
+    return `<div class="tnode ${fav?'sel':''}" style="padding-left:${depth*10+2}px">
+      <span class="tcaret ${kids?'':'empty'}" ${kids?`data-exp="${esc(n.prefix)}"`:''}>${kids?(open?'▾':'▸'):''}</span>
+      <span class="tstar ${fav?'on':''}" data-star="${esc(n.prefix)}">${fav?'★':'☆'}</span>
+      <span class="tlabel" ${kids?`data-exp="${esc(n.prefix)}"`:''} title="${esc(n.name)}">${esc(n.name)}</span>
+      <span class="tcnt">${n.count}</span>
+    </div>`+(kids&&open?treeHtml(n,depth+1):'');
+  }).join('');
+}
+function starredSection(){
+  if(!FAV.size)return '';
+  const items=[...FAV].map(p=>`<div class="tnode sel" style="padding-left:4px">
+     <span class="tcaret empty"></span>
+     <span class="tstar on" data-star="${esc(p)}">★</span>
+     <span class="tlabel" title="${esc(p)}">${esc(p.split('_').pop())}</span>
+     <span class="tcnt">${PATHINDEX[p]?PATHINDEX[p].count:''}</span></div>`).join('');
+  return `<div class="tstarhead"><span>★ Starred</span><button data-favtoggle class="ftgl ${S.favFilter?'on':''}">filter ${S.favFilter?'on':'off'}</button></div>${items}<div class="tdiv"></div>`;
+}
+function renderTree(){ const el=document.getElementById('tree'); if(el)el.innerHTML=(starredSection()+treeHtml(PATHTREE,0))||'<div class="empty">no data</div>'; }
+
+function pathLine(c){return c._shortPath?`<span class="pivot" data-piv="path" data-val="${esc(c._shortPath)}">🗂 ${esc(c._shortPath)}</span> <span class="listings">· in ${c._paths.length} area${c._paths.length!==1?'s':''}</span>`:'';}
+function timeLine(c){return `${daysHtml(c)} <span style="color:var(--muted)">${esc(c.cos_time||'')}</span>${c._campus.map(k=>`<span class="pivot campustag" data-piv="campus" data-val="${esc(k)}">📍${esc(k)}</span>`).join('')}`;}
+function teacherLine(c){return c._teachers.map(t=>`<span class="pivot" data-piv="teacher" data-val="${esc(t)}">${esc(t)}</span>`).join('、')||'—';}
+function snippet(c,n){ if(!(c.crs_outline&&c.crs_outline.trim()))return ''; const o=c.crs_outline.trim();
+  return `<div class="rowoutline${c._outBoiler?' boiler':''}">${c._outBoiler?'<span class="tmpl">template</span> ':''}${esc(o.slice(0,n))}${o.length>n?'…':''}</div>`; }
+function listRow(c){
+  return `<div class="row">
+    <div class="top"><div class="title"><span class="clink" data-id="${esc(c.cos_id)}">${esc(c.cos_cname)}</span><span class="code">${esc(c.cos_code)}</span></div>${badges(c)}</div>
+    ${c._shortPath?`<div class="rowpath">${pathLine(c)}</div>`:''}
+    <div class="sub">
+      <span>👤 ${teacherLine(c)}</span>
+      <span>🏛 ${esc(c.dep_cname||'—')}</span>
+      <span>${timeLine(c)}</span>
+      <span>${fillBar(c)}</span>
     </div>
-    <div class="search-form"> 
-        <input type="text" class="search" placeholder="課程名稱或授課老師">
-        <ul class="suggestions">
-        </ul>
+    ${snippet(c,180)}
+  </div>`;
+}
+function pinCard(c){
+  return `<div class="pcard">
+    <div class="pctitle"><span class="clink" data-id="${esc(c.cos_id)}">${esc(c.cos_cname)}</span></div>
+    <div class="pccode">${esc(c.cos_code)}${c.cos_ename?' · '+esc(c.cos_ename):''}</div>
+    ${badges(c)}
+    <div class="pcmeta">👤 ${teacherLine(c)}</div>
+    <div class="pcmeta">🏛 ${esc(c.dep_cname||'—')}</div>
+    ${c._shortPath?`<div class="pcmeta">${pathLine(c)}</div>`:''}
+    <div class="pcmeta">${timeLine(c)}</div>
+    <div class="pcmeta">${fillBar(c)}</div>
+    ${snippet(c,320)}
+  </div>`;
+}
+function renderResults(){
+  const r=filtered();
+  document.getElementById('chips').innerHTML=chipsHtml();
+  document.getElementById('resCount').textContent=`${r.length.toLocaleString()} courses`+(r.length>400?' (top 400 shown)':'');
+  const list=document.getElementById('results'); const rows=r.slice(0,400);
+  if(!rows.length){ list.innerHTML='<div class="empty">No courses match. Loosen a filter.</div>'; wireClears(); return; }
+  list.innerHTML = S.view==='pin' ? `<div class="pin">${rows.map(pinCard).join('')}</div>` : rows.map(listRow).join('');
+  list.querySelectorAll('.pivot').forEach(el=>el.addEventListener('click',()=>{
+    const k=el.dataset.piv,v=el.dataset.val;
+    if(k==='campus')S.campus.add(v); else if(k==='path'){ if(!FAV.has(v))toggleFav(v); } else if(k==='teacher')S.teacher=v;
+    renderTree(); renderResults();
+  }));
+  list.querySelectorAll('.clink').forEach(el=>el.addEventListener('click',()=>{
+    const c=DATA.find(x=>String(x.cos_id)===el.dataset.id); if(c)openDetail(c);
+  }));
+  wireClears();
+}
+function detailInner(c){
+  return `<button class="x" data-close="1">×</button>
+    <h2>${esc(c.cos_cname)}</h2>
+    <p class="den">${esc(c.cos_ename||'')} · ${esc(c.cos_code)}</p>
+    ${badges(c)}
+    <div class="dkv">
+      <b>Teacher</b><span>${c._teachers.map(esc).join('、')||'—'}</span>
+      <b>Department</b><span>${esc(c.dep_cname||'—')}</span>
+      <b>Path</b><span>${c._paths.map(esc).join('<br>')||'—'}</span>
+      <b>Type</b><span>${esc(c.cos_type||'—')} · ${esc(c.cos_credit||'?')} credits</span>
+      <b>Time</b><span>${daysHtml(c)} ${esc(c.cos_time||'—')}</span>
+      <b>Enrolment</b><span>${fillBar(c)}</span>
+      <b>Language</b><span>${esc(langLabel(c.language||'—'))}</span>
     </div>
-    <script>
-        let courses = [];
-        const yearFiles = {
-            "1151": "https://raw.githubusercontent.com/JadarTheObscurity/NYCUTimeTableLookup/main/1151.json",
-            "1142": "https://raw.githubusercontent.com/JadarTheObscurity/NYCUTimeTableLookup/main/1142.json",
-            "1141": "https://raw.githubusercontent.com/JadarTheObscurity/NYCUTimeTableLookup/main/1141.json",
-            "1132": "https://raw.githubusercontent.com/JadarTheObscurity/NYCUTimeTableLookup/main/1132.json",
-            "1131": "https://raw.githubusercontent.com/JadarTheObscurity/NYCUTimeTableLookup/main/1131.json",
-            "1122": "https://raw.githubusercontent.com/JadarTheObscurity/NYCUTimeTableLookup/main/1122.json",
-            "1121": "https://raw.githubusercontent.com/JadarTheObscurity/NYCUTimeTableLookup/main/1121.json",
-            "1112": "https://raw.githubusercontent.com/JadarTheObscurity/NYCUTimeTableLookup/main/1112.json",
-            "1111": "https://raw.githubusercontent.com/JadarTheObscurity/NYCUTimeTableLookup/main/1111.json",
-            "1102": "https://raw.githubusercontent.com/JadarTheObscurity/NYCUTimeTableLookup/main/1102.json",
-            "1101": "https://raw.githubusercontent.com/JadarTheObscurity/NYCUTimeTableLookup/main/1101.json"
-            // Add more year-file mappings as needed
-        };
+    ${c.crs_outline&&c.crs_outline.trim()?`<b class="dlabel">SYLLABUS${c._outBoiler?' (shared template)':''}</b><div class="doutline">${esc(c.crs_outline.trim())}</div>`:'<p style="color:var(--muted)">No syllabus published.</p>'}
+    <p style="margin-top:14px"><a href="${officialUrl(c)}" target="_blank" rel="noopener">Open on official NYCU timetable ↗</a></p>`;
+}
+function openDetail(c){
+  const root=document.getElementById('modalRoot');
+  root.innerHTML=`<div class="modal-bg"><div class="modal">${detailInner(c)}</div></div>`;
+  root.querySelector('.modal-bg').addEventListener('click',e=>{
+    if(e.target.classList.contains('modal-bg')||e.target.dataset.close)root.innerHTML='';
+  });
+}
+function wireClears(){
+  document.querySelectorAll('[data-clear]').forEach(b=>b.addEventListener('click',()=>{
+    const k=b.dataset.clear;
+    if(k==='onlyNew')S.onlyNew=false;
+    else if(k==='onlyNewTeacher')S.onlyNewTeacher=false;
+    else if(k==='onlyOutline')S.onlyOutline=false;
+    else if(k==='campus')S.campus.delete(b.dataset.val);
+    else if(k==='lang')S.langs.delete(b.dataset.val);
+    else S[k]='';
+    renderTree(); renderResults();
+  }));
+}
 
-        function updateCourseCount() {
-            const uniqueCourses = new Set(courses.map(course => course.cos_id));
-            document.getElementById('courseCount').textContent = uniqueCourses.size;
-        }
+function renderApp(){
+  const app=document.getElementById('app');
+  app.innerHTML=`
+  <div class="wrap">
+    <aside class="side">
+      <div class="side-head"><span>Course path</span><button id="collapseAll">collapse</button></div>
+      <div id="tree"></div>
+      <h4>Time (calendar)</h4>
+      <div id="cal">${calGrid()}</div>
+      <div class="hint">Click cells; matches courses meeting in any selected slot. <button id="calClr" class="mini">clear</button></div>
+      <h4>Location / campus</h4>
+      <div class="checklist" id="fCampus"><label><input type="checkbox" value="__none__" ${S.campus.has('__none__')?'checked':''}> (not specified) <span class="cnt">${DATA.filter(c=>!c._campus.length).length}</span></label>${CAMPUS.map(d=>`<label><input type="checkbox" value="${esc(d.name)}" ${S.campus.has(d.name)?'checked':''}> ${esc(d.name)} <span class="cnt">${d.count}</span></label>`).join('')}</div>
+      <h4>Language</h4>
+      <div class="checklist" id="fLang">${LANGS.map(d=>`<label><input type="checkbox" value="${esc(d.name)}" ${S.langs.has(d.name)?'checked':''}> ${esc(langLabel(d.name))} <span class="cnt">${d.count}</span></label>`).join('')||'<div class="hint">none</div>'}</div>
+      <h4>Fill rate %</h4>
+      <div class="rangepair">
+        <label>min <b id="fmMinL">${S.fillMin}</b><input type="range" id="fMin" min="0" max="100" value="${S.fillMin}"></label>
+        <label>max <b id="fmMaxL">${S.fillMax}</b><input type="range" id="fMax" min="0" max="100" value="${S.fillMax}"></label>
+      </div>
+      <div class="hint">Narrow the top for niche/under-full courses.</div>
+      <h4>Type</h4>
+      <select id="fType"><option value="">Any</option>${TYPES.map(t=>`<option ${S.type===t?'selected':''}>${esc(t)}</option>`).join('')}</select>
+      <h4>Interesting</h4>
+      <label class="check"><input type="checkbox" id="fNew" ${S.onlyNew?'checked':''}> 🆕 New this year</label>
+      <label class="check"><input type="checkbox" id="fNewT" ${S.onlyNewTeacher?'checked':''}> 👤 New teacher</label>
+      <label class="check"><input type="checkbox" id="fOut" ${S.onlyOutline?'checked':''}> 📄 Has real outline</label>
+    </aside>
+    <main>
+      <div class="searchrow">
+        <input class="q" id="fQ" placeholder="Search name, teacher, code, or path — space = AND" value="${esc(S.q)}">
+        <select class="sortsel" id="fSort">
+          <option value="interest" ${S.sort==='interest'?'selected':''}>Sort: Interest</option>
+          <option value="new" ${S.sort==='new'?'selected':''}>Sort: New first</option>
+          <option value="fill" ${S.sort==='fill'?'selected':''}>Sort: Fullest</option>
+          <option value="empty" ${S.sort==='empty'?'selected':''}>Sort: Emptiest (niche)</option>
+          <option value="specialized" ${S.sort==='specialized'?'selected':''}>Sort: Fewest listings</option>
+          <option value="crosslisted" ${S.sort==='crosslisted'?'selected':''}>Sort: Most listings</option>
+          <option value="name" ${S.sort==='name'?'selected':''}>Sort: Name</option>
+        </select>
+        <div class="viewtoggle">
+          <button data-view="list" class="${S.view==='list'?'on':''}" title="List">☰</button>
+          <button data-view="pin" class="${S.view==='pin'?'on':''}" title="Grid">▦</button>
+        </div>
+      </div>
+      <div class="meta"><div class="chips" id="chips"></div><div id="resCount"></div></div>
+      <div id="results"></div>
+    </main>
+  </div>`;
 
-        function loadCourses(year) {
-            fetch(yearFiles[year]).then(blob => blob.json()).then(data => {
-                courses = data;
-                updateCourseCount();
-            });
-        }
+  const R=renderResults;
+  document.getElementById('fQ').addEventListener('input',e=>{S.q=e.target.value; R();});
+  document.getElementById('fSort').addEventListener('change',e=>{S.sort=e.target.value; R();});
+  document.getElementById('fType').addEventListener('change',e=>{S.type=e.target.value; R();});
+  document.getElementById('fNew').addEventListener('change',e=>{S.onlyNew=e.target.checked; R();});
+  document.getElementById('fNewT').addEventListener('change',e=>{S.onlyNewTeacher=e.target.checked; R();});
+  document.getElementById('fOut').addEventListener('change',e=>{S.onlyOutline=e.target.checked; R();});
+  document.getElementById('fCampus').addEventListener('change',e=>{const cb=e.target; if(cb.matches&&cb.matches('input')){cb.checked?S.campus.add(cb.value):S.campus.delete(cb.value); R();}});
+  document.getElementById('fLang').addEventListener('change',e=>{const cb=e.target; if(cb.matches&&cb.matches('input')){cb.checked?S.langs.add(cb.value):S.langs.delete(cb.value); R();}});
+  const mn=document.getElementById('fMin'), mx=document.getElementById('fMax');
+  mn.addEventListener('input',e=>{S.fillMin=Math.min(+e.target.value,S.fillMax); mn.value=S.fillMin; document.getElementById('fmMinL').textContent=S.fillMin; R();});
+  mx.addEventListener('input',e=>{S.fillMax=Math.max(+e.target.value,S.fillMin); mx.value=S.fillMax; document.getElementById('fmMaxL').textContent=S.fillMax; R();});
+  document.getElementById('cal').addEventListener('click',e=>{const td=e.target.closest('td[data-slot]'); if(!td)return; const s=td.dataset.slot; S.slots.has(s)?S.slots.delete(s):S.slots.add(s); td.classList.toggle('on'); R();});
+  document.getElementById('calClr').addEventListener('click',()=>{S.slots.clear(); document.getElementById('cal').innerHTML=calGrid(); R();});
+  document.querySelectorAll('.viewtoggle button').forEach(b=>b.addEventListener('click',()=>{S.view=b.dataset.view; document.querySelectorAll('.viewtoggle button').forEach(x=>x.classList.toggle('on',x===b)); R();}));
+  document.getElementById('collapseAll').addEventListener('click',()=>{S.expanded.clear(); renderTree();});
+  const tree=document.getElementById('tree');
+  tree.addEventListener('click',e=>{
+    const st=e.target.closest('.tstar'); if(st){toggleFav(st.dataset.star); renderTree(); renderResults(); return;}
+    const ft=e.target.closest('[data-favtoggle]'); if(ft){S.favFilter=!S.favFilter; renderTree(); renderResults(); return;}
+    const ex=e.target.closest('[data-exp]'); if(ex){const p=ex.dataset.exp; S.expanded.has(p)?S.expanded.delete(p):S.expanded.add(p); renderTree();}
+  });
+  renderTree(); renderResults();
+}
 
-        document.getElementById('yearSelect').addEventListener('change', function() {
-            loadCourses(this.value);
-        });
-
-        // Load the default year's courses
-        loadCourses(document.getElementById('yearSelect').value);
-
-        function findMatch(keyword, courses) {
-            if (keyword === '') {
-                return [];
-            }
-            keyword = keyword.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&')
-            // console.log(keyword)
-            const keywordArray = keyword.split(' ').filter(keyword => {return keyword.trim() !== ''});
-            const regex = new RegExp(`(${keywordArray.join('|')})`, 'gi');
-            const regexArray = keywordArray.map(keyword => new RegExp(`(${keyword})`, 'gi'));
-            return courses.filter(course => {
-                const courseType = course.costype.reduce((acc, cur) => {
-                    return acc + cur + " "
-                }, "");
-                const fullOutlineSearch = document.getElementById('fullOutlineSearch').checked;
-                return regexArray.every(regex => course.cos_cname.match(regex) || course.teacher.match(regex) || (fullOutlineSearch && course.crs_outline.match(regex)) || courseType.match(regex));
-   
-                // return regexArray.every(regex => course.cos_cname.match(regex) || course.teacher.match(regex) || course.crs_outline.match(regex)|| courseType.match(regex));
-            })
-        }
-
-        function highlightResult(keyword, string) {
-            const keywordArray = keyword.split(' ').filter(keyword => {return keyword.trim() !== ''});
-            console.log(keyword, string)
-            const regex = new RegExp(`(${keywordArray.join('|')})`, 'gi');
-            // check if string is undefined
-            if (string === undefined || string.match(regex) === null) {
-                return string;
-            }
-            return string.replace(regex, `<span class="hl">${"$&"}</span>`)
-        }
-
-
-        function displayMatch(e) {
-            if (this.value === '') {
-                listElement.innerHTML = '';
-                return;
-            }
-            let courseIds = new Set();
-            const matches = findMatch(this.value, courses).filter(course => {
-                if (courseIds.has(course.cos_id)) {
-                    return false;
-                }
-                courseIds.add(course.cos_id);
-                return true;
-            })
-
-            const keywordArray = this.value.split(' ').filter(keyword => {return keyword.trim() !== ''});
-            const regex = new RegExp(`(${keywordArray.join('|')})`, 'gi');
-            const htmlAll = matches.map(course => {
-                const fullOutlineSearch = document.getElementById('fullOutlineSearch').checked;
-                const courseSem = course.sem;
-                const courseAcy = course.acy; 
-                const courseURL = `https://timetable.nycu.edu.tw/?r=main/crsoutline&Acy=${courseAcy}&Sem=${courseSem}&CrsNo=${course.cos_id}&lang=zh-tw`;
-                const coursePath = course.coursePath[0];
-                const courseName = highlightResult(this.value, course.cos_cname);
-                const courseTeacher = highlightResult(this.value, course.teacher);
-                const courseOutline = highlightResult(this.value, course.crs_outline);
-                const courseTime = course.cos_time
-                const courseTypeTmp = course.costype.reduce((acc, cur) => {
-                    return acc + cur + " "
-                }, "")
-                const courseType = highlightResult(this.value, courseTypeTmp) 
-            
-                return `
-                    <li>
-                        <a href=${courseURL}  target="_blank" rel="noopener noreferrer" class="links"> 課程名稱：${courseName} </a>
-                        <span class="coursePath"> 課程路徑：${coursePath}</span>
-                        <span class="courseTeacher"> 授課老師：${courseTeacher}</span>
-                        <span class="courseTime"> 課程時間：${courseTime}</span>
-                        <span class="courseType"> ${courseType}</span>
-                        <span class="courseOutline"> ${courseOutline}</span>
-                    </li>
-                    `
-            });
-
-
-
-            const html = htmlAll.join('');
-            listElement.innerHTML = html;
-        }
-
-        const inputElement = document.querySelector(".search");
-        const listElement = document.querySelector(".suggestions");
-
-        inputElement.addEventListener('change', displayMatch);
-        inputElement.addEventListener('keyup', displayMatch);
-
-
-
-    </script>
+/* ---------- boot ---------- */
+async function load(year){
+  S.year=year;
+  document.getElementById('status').style.display='block';
+  document.getElementById('status').textContent='Loading '+year+'…';
+  document.getElementById('app').style.display='none';
+  try{
+    const cur=await loadYear(year);
+    const py=priorOf(year);
+    const prior=py?await loadYear(py).catch(()=>[]):[];
+    DATA=enrich(cur,prior);
+    buildFacets();
+    // reset facet selections that may not exist in the new dataset
+    S.slots.clear(); S.campus.clear(); S.langs.clear(); S.expanded.clear(); S.type='';
+    document.getElementById('count').textContent=`${DATA.length.toLocaleString()} courses · novelty vs ${py||'—'}`;
+    document.getElementById('status').style.display='none';
+    document.getElementById('app').style.display='block';
+    renderApp();
+  }catch(e){
+    document.getElementById('status').innerHTML='Failed to load '+esc(year)+': '+esc(e.message)+
+      '<br><br>Serve the repo over http (e.g. <code>python -m http.server</code>) or check the JSON exists.';
+  }
+}
+(function init(){
+  const sel=document.getElementById('yearSel');
+  sel.innerHTML=YEARS.map(y=>`<option value="${y}">${y}</option>`).join('');
+  sel.value=S.year;
+  sel.addEventListener('change',()=>load(sel.value));
+  document.getElementById('helpBtn').addEventListener('click',()=>{const b=document.getElementById('helpBox'); b.hidden=!b.hidden;});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('modalRoot').innerHTML='';});
+  load(S.year);
+})();
+</script>
 </body>
-
 </html>
