@@ -1,4 +1,19 @@
 <!DOCTYPE html>
+<!--
+  Favorite courses + shareable URL.
+    • ♥ Save-to button on the left of each list row and in the detail modal;
+      heart on grid cards. Favorites persist in the `favCourses` cookie
+      (identified by cos_code, stable across semesters).
+    • "♥ Favorites (n)" toggle filters the list to your favorites; while on it
+      bypasses the starred-path filter. Courses not offered in the viewed
+      semester are counted as "N not offered in <year>".
+    • "Copy share link" encodes the list as ?fav=code1,code2. Opening such a
+      link shows a temporary shared view (does NOT touch the visitor's cookie)
+      with "Save all to my favorites" / "Exit shared view".
+    • GA4 events: add_favorite / remove_favorite (course_code), share_copy
+      (count + codes), share_open (count), share_save_all (count).
+  Prototype primary source kept on branch: prototype/favorites-share
+-->
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
@@ -130,6 +145,29 @@
   .doutline{background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:14px; white-space:pre-wrap; font-size:13px; line-height:1.6; margin-top:6px}
 
   @media(max-width:900px){ .wrap{grid-template-columns:1fr} aside{position:static; max-height:300px} }
+
+  /* ==================== PROTOTYPE: favorite courses (filter) ==================== */
+  /* ♥ on the LEFT of every row/card */
+  .heart{cursor:pointer; color:#d1d5db; font-size:17px; line-height:1; background:none; border:none; padding:0; flex:0 0 auto}
+  .heart:hover{color:#f3b5b1}
+  .heart.on{color:var(--hot)}
+  /* prominent Save button in the detail modal */
+  .savebtn{display:inline-flex; align-items:center; gap:8px; border:2px solid var(--hot); background:#fff; color:var(--hot); border-radius:12px; padding:9px 20px; font-size:15px; font-weight:700; line-height:1.1}
+  .savebtn:hover{background:var(--hot-soft)}
+  .savebtn.on{background:var(--hot); color:#fff}
+  .savebtn.on:hover{background:#c93a30}
+  .savebtn.sm{padding:4px 11px; font-size:12px; border-width:1.5px; border-radius:9px; flex:0 0 auto}
+
+  .row .top .tl{display:flex; align-items:center; gap:9px; min-width:0; flex:1}
+  .row .top .tl .title{min-width:0}
+  .pctitle .heart{margin-right:6px; vertical-align:middle}
+
+  /* favorites filter + share bar (mirrors the path "filter on/off" toggle) */
+  .favbar{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:10px}
+  .favbar .favtgl.on{background:var(--hot); color:#fff; border-color:var(--hot)}
+  .favbar .favview{font-size:13px; font-weight:600; color:var(--hot)}
+  .favbar .share{border:1px solid var(--accent); background:#fff; color:var(--accent); border-radius:20px; font-size:12px; font-weight:600; padding:4px 14px}
+  .favbar .favmiss{font-size:12px; color:var(--doc); background:var(--doc-soft); border-radius:6px; padding:2px 8px}
 </style>
 </head>
 <body>
@@ -169,12 +207,25 @@ const LANGLABEL={'zh-tw':'中文','zh-TW':'中文','zh':'中文','en':'English',
 let DATA=[], CAMPUS=[], LANGS=[], TYPES=[], PATHTREE=null, PATHINDEX={};
 
 const S={q:'',expanded:new Set(),slots:new Set(),type:'',langs:new Set(),campus:new Set(),
-  teacher:'',onlyNew:false,onlyNewTeacher:false,onlyOutline:false,fillMin:0,fillMax:100,sort:'interest',view:'list',year:'1151',favFilter:true};
+  teacher:'',onlyNew:false,onlyNewTeacher:false,onlyOutline:false,fillMin:0,fillMax:100,sort:'interest',view:'list',year:'1151',favFilter:true,favCFilter:false};
 
 function cookieGet(k){const m=document.cookie.match('(?:^|; )'+k+'=([^;]*)');return m?decodeURIComponent(m[1]):'';}
 function cookieSet(k,v){document.cookie=k+'='+encodeURIComponent(v)+';path=/;max-age=31536000';}
 let FAV=(function(){try{return new Set(JSON.parse(cookieGet('favPaths')||'[]'));}catch(e){return new Set();}})();
 function toggleFav(p){FAV.has(p)?FAV.delete(p):FAV.add(p); cookieSet('favPaths',JSON.stringify([...FAV]));}
+
+/* ===================== PROTOTYPE: course favorites + share ===================== */
+/* cos_code identity (stable across semesters); persisted in cookie `favCourses`. */
+const params=new URLSearchParams(location.search);
+let FAVC=(function(){try{return new Set(JSON.parse(cookieGet('favCourses')||'[]'));}catch(e){return new Set();}})();
+let SHARED=null; // when opening a ?fav= link: a temporary shared list to VIEW; never written to cookie
+function gaEvent(name,p){ try{ if(window.gtag)gtag('event',name,p||{}); }catch(e){} }
+function toggleFavC(code){ const adding=!FAVC.has(code); adding?FAVC.add(code):FAVC.delete(code); cookieSet('favCourses',JSON.stringify([...FAVC])); gaEvent(adding?'add_favorite':'remove_favorite',{course_code:code,fav_count:FAVC.size}); }
+function shareUrl(){ const u=new URL(location.href); u.searchParams.set('fav',[...FAVC].join(',')); return u.toString(); }
+function doShare(btn){ const url=shareUrl(); let ok=false; try{if(navigator.clipboard){navigator.clipboard.writeText(url); ok=true;}}catch(e){}
+  if(!ok)prompt('Copy this share link:',url);
+  gaEvent('share_copy',{count:FAVC.size,codes:[...FAVC].join(',')});
+  if(btn){const o=btn.textContent; btn.textContent='Link copied ✓'; setTimeout(()=>btn.textContent=o,1400);} }
 
 /* ---------- data ---------- */
 async function loadYear(y){
@@ -243,6 +294,9 @@ function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,m=>({'&':'&amp;','
 function fillColor(f){return f>=0.9?'var(--hot)':f>=0.6?'#f59e0b':'var(--new)';}
 function daysHtml(c){return c._days.map(d=>`<span class="daytag">${DAYMAP[d]}</span>`).join('');}
 function officialUrl(c){return `https://timetable.nycu.edu.tw/?r=main/crsoutline&Acy=${c.acy}&Sem=${c.sem}&CrsNo=${c.cos_id}&lang=zh-tw`;}
+function heartBtn(c){const on=FAVC.has(c.cos_code); return `<button class="heart ${on?'on':''}" data-fav="${esc(c.cos_code)}" title="${on?'Remove from favorites':'Save to favorites'}">${on?'♥':'♡'}</button>`;}
+function saveBtnHtml(c,cls){const on=FAVC.has(c.cos_code); return `<button class="savebtn ${cls||''} ${on?'on':''}" data-save="${esc(c.cos_code)}" title="${on?'Click to remove from favorites':'Save to favorites'}">${on?'♥ Saved':'Save to ♥'}</button>`;}
+function syncSaveBtn(btn){const on=FAVC.has(btn.dataset.save); btn.classList.toggle('on',on); btn.textContent=on?'♥ Saved':'Save to ♥'; btn.title=on?'Click to remove from favorites':'';}
 function badges(c){
   let h='';
   if(c._isNew)h+='<span class="badge b-new">🆕 new</span>';
@@ -265,7 +319,9 @@ function filtered(){
   const q=S.q.trim().toLowerCase().split(/\s+/).filter(Boolean);
   const fillActive=S.fillMin>0||S.fillMax<100;
   let r=DATA.filter(c=>{
-    if(S.favFilter && FAV.size){ let hit=false;
+    // course-favorites filter takes precedence over the path-favorites filter
+    if(S.favCFilter){ const set=SHARED||FAVC; if(set.size && !set.has(c.cos_code)) return false; }
+    else if(S.favFilter && FAV.size){ let hit=false;
       for(const e of c._paths){ for(const p of FAV){ if(e===p||e.startsWith(p+'_')){hit=true;break;} } if(hit)break; }
       if(!hit)return false; }
     if(S.type && (c.cos_type||'')!==S.type) return false;
@@ -341,7 +397,7 @@ function snippet(c,n){ if(!(c.crs_outline&&c.crs_outline.trim()))return ''; cons
   return `<div class="rowoutline${c._outBoiler?' boiler':''}">${c._outBoiler?'<span class="tmpl">template</span> ':''}${esc(o.slice(0,n))}${o.length>n?'…':''}</div>`; }
 function listRow(c){
   return `<div class="row">
-    <div class="top"><div class="title"><span class="clink" data-id="${esc(c.cos_id)}">${esc(c.cos_cname)}</span><span class="code">${esc(c.cos_code)}</span></div>${badges(c)}</div>
+    <div class="top"><div class="tl">${saveBtnHtml(c,'sm')}<div class="title"><span class="clink" data-id="${esc(c.cos_id)}">${esc(c.cos_cname)}</span><span class="code">${esc(c.cos_code)}</span></div></div>${badges(c)}</div>
     ${c._shortPath?`<div class="rowpath">${pathLine(c)}</div>`:''}
     <div class="sub">
       <span>👤 ${teacherLine(c)}</span>
@@ -354,7 +410,7 @@ function listRow(c){
 }
 function pinCard(c){
   return `<div class="pcard">
-    <div class="pctitle"><span class="clink" data-id="${esc(c.cos_id)}">${esc(c.cos_cname)}</span></div>
+    <div class="pctitle">${heartBtn(c)}<span class="clink" data-id="${esc(c.cos_id)}">${esc(c.cos_cname)}</span></div>
     <div class="pccode">${esc(c.cos_code)}${c.cos_ename?' · '+esc(c.cos_ename):''}</div>
     ${badges(c)}
     <div class="pcmeta">👤 ${teacherLine(c)}</div>
@@ -370,7 +426,7 @@ function renderResults(){
   document.getElementById('chips').innerHTML=chipsHtml();
   document.getElementById('resCount').textContent=`${r.length.toLocaleString()} courses`+(r.length>400?' (top 400 shown)':'');
   const list=document.getElementById('results'); const rows=r.slice(0,400);
-  if(!rows.length){ list.innerHTML='<div class="empty">No courses match. Loosen a filter.</div>'; wireClears(); return; }
+  if(!rows.length){ list.innerHTML='<div class="empty">'+(S.favCFilter&&(SHARED||FAVC).size?(SHARED?'None of the shared courses are offered this semester.':'None of your favorites match the other filters (or are offered this semester).'):'No courses match. Loosen a filter.')+'</div>'; wireClears(); return; }
   list.innerHTML = S.view==='pin' ? `<div class="pin">${rows.map(pinCard).join('')}</div>` : rows.map(listRow).join('');
   list.querySelectorAll('.pivot').forEach(el=>el.addEventListener('click',()=>{
     const k=el.dataset.piv,v=el.dataset.val;
@@ -380,13 +436,45 @@ function renderResults(){
   list.querySelectorAll('.clink').forEach(el=>el.addEventListener('click',()=>{
     const c=DATA.find(x=>String(x.cos_id)===el.dataset.id); if(c)openDetail(c);
   }));
+  list.querySelectorAll('.heart').forEach(el=>el.addEventListener('click',e=>{
+    e.stopPropagation(); toggleFavC(el.dataset.fav); renderFavBar(); renderResults();
+  }));
+  list.querySelectorAll('.savebtn').forEach(el=>el.addEventListener('click',e=>{
+    e.stopPropagation(); toggleFavC(el.dataset.save); renderFavBar(); renderResults();
+  }));
   wireClears();
 }
+
+/* ---------- PROTOTYPE: favorites filter + share bar ---------- */
+function renderFavBar(){
+  const el=document.getElementById('favBar'); if(!el)return;
+  if(SHARED){ // temporary shared-list view — nothing is written to the cookie
+    const missing=[...SHARED].filter(code=>!DATA.some(x=>x.cos_code===code)).length;
+    el.innerHTML=`
+      <span class="favview">👀 Viewing a shared list · ${SHARED.size} course${SHARED.size!==1?'s':''}</span>
+      <button id="favSaveAll" class="share">＋ Save all to my favorites</button>
+      <button id="favExit" class="ftgl">Exit shared view</button>
+      ${missing?`<span class="favmiss">${missing} not offered in ${esc(S.year)}</span>`:''}`;
+    document.getElementById('favSaveAll').addEventListener('click',()=>{ [...SHARED].forEach(c=>FAVC.add(c)); cookieSet('favCourses',JSON.stringify([...FAVC])); gaEvent('share_save_all',{count:SHARED.size}); SHARED=null; renderFavBar(); renderResults(); });
+    document.getElementById('favExit').addEventListener('click',()=>{ SHARED=null; S.favCFilter=false; renderFavBar(); renderResults(); });
+    return;
+  }
+  if(!FAVC.size){ el.innerHTML=''; return; }
+  const missing=[...FAVC].filter(code=>!DATA.some(x=>x.cos_code===code)).length;
+  el.innerHTML=`
+    <button id="favCToggle" class="ftgl favtgl ${S.favCFilter?'on':''}">♥ Favorites (${FAVC.size})</button>
+    <button id="favShare" class="share">🔗 Copy share link</button>
+    ${missing?`<span class="favmiss">${missing} not offered in ${esc(S.year)}</span>`:''}`;
+  const t=document.getElementById('favCToggle'); if(t)t.addEventListener('click',()=>{S.favCFilter=!S.favCFilter; renderFavBar(); renderResults();});
+  const sh=document.getElementById('favShare'); if(sh)sh.addEventListener('click',()=>doShare(sh));
+}
+
 function detailInner(c){
   return `<button class="x" data-close="1">×</button>
     <h2>${esc(c.cos_cname)}</h2>
     <p class="den">${esc(c.cos_ename||'')} · ${esc(c.cos_code)}</p>
     ${badges(c)}
+    <div style="margin-top:12px">${saveBtnHtml(c)}</div>
     <div class="dkv">
       <b>Teacher</b><span>${c._teachers.map(esc).join('、')||'—'}</span>
       <b>Department</b><span>${esc(c.dep_cname||'—')}</span>
@@ -405,6 +493,8 @@ function openDetail(c){
   root.querySelector('.modal-bg').addEventListener('click',e=>{
     if(e.target.classList.contains('modal-bg')||e.target.dataset.close)root.innerHTML='';
   });
+  const sb=root.querySelector('[data-save]');
+  if(sb)sb.addEventListener('click',()=>{ toggleFavC(sb.dataset.save); syncSaveBtn(sb); renderFavBar(); renderResults(); });
 }
 function wireClears(){
   document.querySelectorAll('[data-clear]').forEach(b=>b.addEventListener('click',()=>{
@@ -447,6 +537,7 @@ function renderApp(){
       <label class="check"><input type="checkbox" id="fOut" ${S.onlyOutline?'checked':''}> 📄 Has real outline</label>
     </aside>
     <main>
+      <div class="favbar" id="favBar"></div>
       <div class="searchrow">
         <input class="q" id="fQ" placeholder="Search name, teacher, code, or path — space = AND" value="${esc(S.q)}">
         <select class="sortsel" id="fSort">
@@ -490,7 +581,7 @@ function renderApp(){
     const ft=e.target.closest('[data-favtoggle]'); if(ft){S.favFilter=!S.favFilter; renderTree(); renderResults(); return;}
     const ex=e.target.closest('[data-exp]'); if(ex){const p=ex.dataset.exp; S.expanded.has(p)?S.expanded.delete(p):S.expanded.add(p); renderTree();}
   });
-  renderTree(); renderResults();
+  renderTree(); renderResults(); renderFavBar();
 }
 
 /* ---------- boot ---------- */
@@ -523,6 +614,10 @@ async function load(year){
   sel.addEventListener('change',()=>load(sel.value));
   document.getElementById('helpBtn').addEventListener('click',()=>{const b=document.getElementById('helpBox'); b.hidden=!b.hidden;});
   document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('modalRoot').innerHTML='';});
+  // Sharing = applying that filter as a temporary VIEW. Do NOT write to cookie;
+  // show the shared courses until the visitor saves or exits.
+  const incoming=(params.get('fav')||'').split(',').map(s=>s.trim()).filter(Boolean);
+  if(incoming.length){ SHARED=new Set(incoming); S.favCFilter=true; gaEvent('share_open',{count:incoming.length}); }
   load(S.year);
 })();
 </script>
