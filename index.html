@@ -18,7 +18,48 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NYCU 課程探索 · Course Explorer</title>
+<meta name="description" content="國立陽明交通大學 NYCU 非官方課程查詢：依課程領域、教師、上課時間、校區與課程大綱搜尋與篩選課程，收藏並以連結分享課表。Unofficial NYCU course explorer — search and filter by department, teacher, time, campus and syllabus; save favorites and share your list via a link.">
+<meta name="keywords" content="NYCU, 陽明交大, 陽明交通大學, 交大課表, 課程查詢, 選課, 課表, 課程探索, 課程大綱, timetable, NYCU course, course explorer, NYCU timetable">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#2563eb">
+<link rel="canonical" href="https://timetable.nycu.tw/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>NYCU 課程探索 · Course Explorer（非官方）</title>
+
+<!-- Open Graph (Facebook, LINE, etc.) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NYCU 課程探索（非官方）">
+<meta property="og:title" content="NYCU 課程探索 · Course Explorer（非官方）">
+<meta property="og:description" content="陽明交通大學 NYCU 非官方課程查詢：搜尋、篩選、收藏並用連結分享課表。Unofficial NYCU course explorer — search, filter, save favorites and share your list.">
+<meta property="og:url" content="https://timetable.nycu.tw/">
+<meta property="og:image" content="https://timetable.nycu.tw/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:locale:alternate" content="en_US">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NYCU 課程探索 · Course Explorer（非官方）">
+<meta name="twitter:description" content="陽明交通大學 NYCU 非官方課程查詢：搜尋、篩選、收藏並用連結分享課表。">
+<meta name="twitter:image" content="https://timetable.nycu.tw/og-image.png">
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "NYCU 課程探索 · Course Explorer",
+  "alternateName": "NYCU Course Explorer (unofficial)",
+  "url": "https://timetable.nycu.tw/",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Web",
+  "inLanguage": ["zh-Hant", "en"],
+  "isAccessibleForFree": true,
+  "description": "Unofficial course explorer for National Yang Ming Chiao Tung University (NYCU): search and filter courses by department, teacher, time, campus and syllabus; save favorites and share via a link.",
+  "disambiguatingDescription": "Unofficial project; not affiliated with National Yang Ming Chiao Tung University."
+}
+</script>
 <!-- Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-F56QFPX52J"></script>
 <script>
@@ -42,7 +83,12 @@
   button{font:inherit; cursor:pointer}
 
   .topbar{display:flex; align-items:center; gap:16px; padding:10px 18px; background:var(--panel); border-bottom:1px solid var(--line); position:sticky; top:0; z-index:20}
-  .brand{font-weight:700; font-size:16px}
+  .brand{font-weight:700; font-size:16px; margin:0; display:inline-flex; align-items:baseline; gap:8px}
+  .unofficial{font-size:11px; font-weight:600; color:var(--muted); border:1px solid var(--line); border-radius:20px; padding:1px 7px}
+  #seoIntro{max-width:860px; margin:40px auto 0; padding:0 20px; color:#374151; line-height:1.6}
+  #seoIntro h2{font-size:18px; margin:0 0 8px; color:var(--ink)}
+  #seoIntro p{margin:8px 0}
+  #seoIntro .disclaimer{font-size:12px; color:#9ca3af}
   .topbar select{padding:5px 8px; border:1px solid var(--line); border-radius:8px}
   .count{color:var(--muted); font-size:13px}
   .topbar .spacer{flex:1}
@@ -172,7 +218,7 @@
 </head>
 <body>
 <header class="topbar">
-  <div class="brand">NYCU 課程探索</div>
+  <h1 class="brand">NYCU 課程探索<span class="unofficial">非官方 unofficial</span></h1>
   <label>Semester
     <select id="yearSel"></select>
   </label>
@@ -191,8 +237,19 @@
   <p style="color:#9ca3af">Novelty is computed against the same semester one year earlier.</p>
 </div>
 
+<section id="seoIntro">
+  <h2>國立陽明交通大學課程探索（非官方）· NYCU Course Explorer</h2>
+  <p>依課程領域、授課教師、上課時間、校區與課程大綱，快速搜尋與篩選陽明交通大學（NYCU）各學期開設課程；可收藏喜愛的課程，並以連結分享你的課表。</p>
+  <p>Search and filter National Yang Ming Chiao Tung University (NYCU) courses by department, teacher, time, campus and syllabus. Save your favorite courses and share your list with a link.</p>
+  <p class="disclaimer">非官方專案，資料整理自公開課表，與學校無正式關係。官方課表請見 <a href="https://timetable.nycu.edu.tw/">timetable.nycu.edu.tw</a>。An unofficial project, not affiliated with NYCU. Official timetable: <a href="https://timetable.nycu.edu.tw/">timetable.nycu.edu.tw</a>.</p>
+</section>
 <div id="status">Loading course data…</div>
 <div id="app" style="display:none"></div>
+<noscript>
+  <div style="max-width:860px; margin:24px auto; padding:0 20px; color:#374151">
+    本網站需要 JavaScript 才能瀏覽完整課程資料。This site needs JavaScript to browse the full course data.
+  </div>
+</noscript>
 <div id="modalRoot"></div>
 
 <script>
@@ -600,6 +657,7 @@ async function load(year){
     S.slots.clear(); S.campus.clear(); S.langs.clear(); S.expanded.clear(); S.type='';
     document.getElementById('count').textContent=`${DATA.length.toLocaleString()} courses · novelty vs ${py||'—'}`;
     document.getElementById('status').style.display='none';
+    var si=document.getElementById('seoIntro'); if(si)si.style.display='none';
     document.getElementById('app').style.display='block';
     renderApp();
   }catch(e){
