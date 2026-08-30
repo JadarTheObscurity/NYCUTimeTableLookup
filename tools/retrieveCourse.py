@@ -169,7 +169,7 @@ def crawl_all_course(year, semester):
     #         thread.join()
     print(f"Get courses outline")
     result = crawl_outlines(nycuTimeTableCrawler, result)
-
+    result.sort(key=lambda x: x['cos_id'])
     file_name = f"{nycuTimeTableCrawler.acysem}.json"
     with open(file_name, "w", encoding="utf8") as f:
         json.dump(result, f, ensure_ascii=False, indent=4)
