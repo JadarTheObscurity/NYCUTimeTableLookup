@@ -261,9 +261,9 @@ const DAY_ORDER=['M','T','W','R','F','S','U'];
 const PERIODS=['1','2','3','4','n','5','6','7','8','a','b','c','d'];
 const LANGLABEL={'zh-tw':'中文','zh-TW':'中文','zh':'中文','en':'English','en-us':'English','en-US':'English'};
 
-let DATA=[], CAMPUS=[], LANGS=[], TYPES=[], PATHTREE=null, PATHINDEX={};
+let DATA=[], CAMPUS=[], LANGS=[], TYPES=[], COSTYPE=[], PATHTREE=null, PATHINDEX={};
 
-const S={q:'',expanded:new Set(),slots:new Set(),types:new Set(),langs:new Set(),campus:new Set(),
+const S={q:'',expanded:new Set(),slots:new Set(),types:new Set(),costype:new Set(),langs:new Set(),campus:new Set(),
   teacher:'',onlyNew:false,onlyNewTeacher:false,onlyOutline:false,fillMin:0,fillMax:100,sort:'interest',view:'list',year:'1151',favFilter:true,favCFilter:false};
 
 function cookieGet(k){const m=document.cookie.match('(?:^|; )'+k+'=([^;]*)');return m?decodeURIComponent(m[1]):'';}
@@ -314,24 +314,33 @@ function enrich(cur,prior){
     const hasNewT=newT.length>0&&!isNew;
     const effort=!o?0:(boiler?0.15:Math.min(1,o.length/800));
     const tm=parseTime(c.cos_time);
+    const costype=Array.isArray(c.costype)?c.costype.filter(Boolean):(c.costype?[c.costype]:[]);
     const paths=Array.isArray(c.coursePath)?c.coursePath.filter(Boolean):[];
     const shortPath=paths.length?paths.slice().sort((a,b)=>a.length-b.length)[0]:'';
     let s=0; if(isNew)s+=30; if(hasNewT)s+=12; s+=effort*25;
     if(fill!=null)s+=Math.min(1,fill)*18; if(effort>0.4&&fill!=null&&fill<0.5)s+=10; if(lim>0&&lim<=15)s+=6;
     return Object.assign({},c,{_teachers:teachers,_newT:newT,_isNew:isNew,_hasNewT:hasNewT,
       _outLen:o.length,_outBoiler:boiler,_hasOutline:!!o&&!boiler,_effort:effort,
-      _lim:lim,_reg:reg,_fill:fill,_days:tm.days,_slots:tm.slots,_campus:tm.campus,
+      _lim:lim,_reg:reg,_fill:fill,_days:tm.days,_slots:tm.slots,_campus:tm.campus,_costype:costype,
       _paths:paths,_shortPath:shortPath,_gem:effort>0.4&&fill!=null&&fill<0.5,_interest:Math.round(s)});
   });
 }
 function buildFacets(){
-  const camp={}, lang={}, typ={};
+  const camp={}, lang={}, typ={}, cost={};
   DATA.forEach(c=>{ c._campus.forEach(k=>camp[k]=(camp[k]||0)+1);
+    c._costype.forEach(k=>cost[k]=(cost[k]||0)+1);
     if(c.language)lang[c.language]=(lang[c.language]||0)+1;
     if(c.cos_type)typ[c.cos_type]=(typ[c.cos_type]||0)+1; });
   CAMPUS=Object.entries(camp).map(([name,count])=>({name,count})).sort((a,b)=>b.count-a.count);
   LANGS=Object.entries(lang).map(([name,count])=>({name,count})).sort((a,b)=>b.count-a.count);
   TYPES=Object.entries(typ).map(([name,count])=>({name,count})).sort((a,b)=>b.count-a.count);
+  const CT_PIN=['基本素養','領域課程', '核心通識'], ctPinned=n=>CT_PIN.some(p=>n.startsWith(p));
+  COSTYPE=Object.entries(cost).map(([name,count])=>({name,count})).sort((a,b)=>{
+    const pa=ctPinned(a.name), pb=ctPinned(b.name);
+    if(pa!==pb) return pa?-1:1;                 // pinned groups first
+    if(pa) return a.name.localeCompare(b.name); // within pinned: by name
+    return b.count-a.count;                     // rest: by count
+  });
   buildTree();
 }
 function buildTree(){
@@ -387,6 +396,7 @@ function filtered(){
       if(S.campus.has('__none__') && c._campus.length===0) hit=true;
       if(!hit) c._campus.forEach(k=>{if(S.campus.has(k))hit=true;});
       if(!hit)return false; }
+    if(S.costype.size){ let hit=false; c._costype.forEach(k=>{if(S.costype.has(k))hit=true;}); if(!hit)return false; }
     if(S.teacher && !c._teachers.includes(S.teacher)) return false;
     if(S.onlyNew && !c._isNew) return false;
     if(S.onlyNewTeacher && !(c._newT.length>0)) return false;
@@ -420,6 +430,7 @@ function chipsHtml(){
   S.campus.forEach(k=>add('campus','📍 '+(k==='__none__'?'(not specified)':k),k));
   S.langs.forEach(l=>add('lang','🗣 '+langLabel(l),l));
   S.types.forEach(t=>add('type','🏷 '+t,t));
+  S.costype.forEach(t=>add('costype','🎯 '+t,t));
   if(S.onlyNew)add('onlyNew','🆕 new');
   if(S.onlyNewTeacher)add('onlyNewTeacher','👤 new teacher');
   if(S.onlyOutline)add('onlyOutline','📄 has outline');
@@ -562,6 +573,7 @@ function wireClears(){
     else if(k==='campus')S.campus.delete(b.dataset.val);
     else if(k==='lang')S.langs.delete(b.dataset.val);
     else if(k==='type')S.types.delete(b.dataset.val);
+    else if(k==='costype')S.costype.delete(b.dataset.val);
     else S[k]='';
     renderTree(); renderResults();
   }));
@@ -589,6 +601,8 @@ function renderApp(){
       <div class="hint">Narrow the top for niche/under-full courses.</div>
       <h4>Type</h4>
       <div class="checklist" id="fType">${TYPES.map(d=>`<label><input type="checkbox" value="${esc(d.name)}" ${S.types.has(d.name)?'checked':''}> ${esc(d.name)} <span class="cnt">${d.count}</span></label>`).join('')||'<div class="hint">none</div>'}</div>
+      <h4>Attribute (costype)</h4>
+      <div class="checklist" id="fCostype">${COSTYPE.map(d=>`<label><input type="checkbox" value="${esc(d.name)}" ${S.costype.has(d.name)?'checked':''}> ${esc(d.name)} <span class="cnt">${d.count}</span></label>`).join('')||'<div class="hint">none</div>'}</div>
       <h4>Interesting</h4>
       <label class="check"><input type="checkbox" id="fNew" ${S.onlyNew?'checked':''}> 🆕 New this year</label>
       <label class="check"><input type="checkbox" id="fNewT" ${S.onlyNewTeacher?'checked':''}> 👤 New teacher</label>
@@ -621,6 +635,7 @@ function renderApp(){
   document.getElementById('fQ').addEventListener('input',e=>{S.q=e.target.value; R();});
   document.getElementById('fSort').addEventListener('change',e=>{S.sort=e.target.value; R();});
   document.getElementById('fType').addEventListener('change',e=>{const cb=e.target; if(cb.matches&&cb.matches('input')){cb.checked?S.types.add(cb.value):S.types.delete(cb.value); R();}});
+  document.getElementById('fCostype').addEventListener('change',e=>{const cb=e.target; if(cb.matches&&cb.matches('input')){cb.checked?S.costype.add(cb.value):S.costype.delete(cb.value); R();}});
   document.getElementById('fNew').addEventListener('change',e=>{S.onlyNew=e.target.checked; R();});
   document.getElementById('fNewT').addEventListener('change',e=>{S.onlyNewTeacher=e.target.checked; R();});
   document.getElementById('fOut').addEventListener('change',e=>{S.onlyOutline=e.target.checked; R();});
@@ -655,7 +670,7 @@ async function load(year){
     DATA=enrich(cur,prior);
     buildFacets();
     // reset facet selections that may not exist in the new dataset
-    S.slots.clear(); S.campus.clear(); S.langs.clear(); S.expanded.clear(); S.types.clear();
+    S.slots.clear(); S.campus.clear(); S.langs.clear(); S.expanded.clear(); S.types.clear(); S.costype.clear();
     document.getElementById('count').textContent=`${DATA.length.toLocaleString()} courses · novelty vs ${py||'—'}`;
     document.getElementById('status').style.display='none';
     var si=document.getElementById('seoIntro'); if(si)si.style.display='none';
